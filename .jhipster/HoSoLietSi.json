@@ -1,0 +1,204 @@
+{
+    "name": "HoSoLietSi",
+    "fields": [
+        {
+            "fieldName": "maCCS",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maLietSi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hoTen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenKhac",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "biDanh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gioiTinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "namSinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "queThon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "queXa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "queHuyen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "queTinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "namNhapNgu",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "namXuatNgu",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "namTaiNgu",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "namDiB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hySinhNgay",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hySinhThang",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hySinhNam",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hySinhLyDo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hySinhDonVi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hySinhTranDanh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hySinhDiaDiem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hySinhXa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hySinhHuyen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hySinhTinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anTangDiaDiem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anTangXa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anTangHuyen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anTangTinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ngayBaoTu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "giayBaoTu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vatDungKemTheo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ghiChu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "trangThaiXacMinh",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "phuongXa",
+            "otherEntityName": "phuongXa",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "capBac",
+            "otherEntityName": "capBac",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "chucVu",
+            "otherEntityName": "chucVu",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lietSi",
+            "otherEntityName": "thanNhanLietSi",
+            "otherEntityRelationshipName": "hoSoLietSi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lietSiMo",
+            "otherEntityName": "haiCotLietSi",
+            "otherEntityRelationshipName": "hoSoLietSi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lietSiNhanDang",
+            "otherEntityName": "nhanDangLietSi",
+            "otherEntityRelationshipName": "hoSoLietSi"
+        },
+        {
+            "relationshipName": "donVi",
+            "otherEntityName": "donVi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "donVi",
+            "otherEntityName": "donVi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181116110402",
+    "entityTableName": "ho_so_liet_si",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

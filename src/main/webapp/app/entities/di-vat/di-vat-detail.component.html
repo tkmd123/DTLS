@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="diVat">
+            <h2><span jhiTranslate="dtlsApp.diVat.detail.title">Di Vat</span> {{diVat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.diVat.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{diVat.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diVat.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{diVat.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diVat.thongTinKhaiQuat">Thong Tin Khai Quat</span></dt>
+                <dd>
+                    <div *ngIf="diVat.thongTinKhaiQuat">
+                        <a [routerLink]="['/thong-tin-khai-quat', diVat.thongTinKhaiQuat?.id, 'view']">{{diVat.thongTinKhaiQuat?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diVat.loaiDiVat">Loai Di Vat</span></dt>
+                <dd>
+                    <div *ngIf="diVat.loaiDiVat">
+                        <a [routerLink]="['/loai-di-vat', diVat.loaiDiVat?.id, 'view']">{{diVat.loaiDiVat?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/di-vat', diVat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

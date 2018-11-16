@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-don-vi-heading" jhiTranslate="dtlsApp.donVi.home.createOrEditLabel">Create or edit a Don Vi</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!donVi.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="donVi.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.maDonVi" for="field_maDonVi">Ma Don Vi</label>
+                    <input type="text" class="form-control" name="maDonVi" id="field_maDonVi"
+                        [(ngModel)]="donVi.maDonVi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.tenDonVi" for="field_tenDonVi">Ten Don Vi</label>
+                    <input type="text" class="form-control" name="tenDonVi" id="field_tenDonVi"
+                        [(ngModel)]="donVi.tenDonVi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.tenTat" for="field_tenTat">Ten Tat</label>
+                    <input type="text" class="form-control" name="tenTat" id="field_tenTat"
+                        [(ngModel)]="donVi.tenTat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.phanMuc" for="field_phanMuc">Phan Muc</label>
+                    <input type="text" class="form-control" name="phanMuc" id="field_phanMuc"
+                        [(ngModel)]="donVi.phanMuc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.phanCap" for="field_phanCap">Phan Cap</label>
+                    <input type="text" class="form-control" name="phanCap" id="field_phanCap"
+                        [(ngModel)]="donVi.phanCap" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.phanKhoi" for="field_phanKhoi">Phan Khoi</label>
+                    <input type="text" class="form-control" name="phanKhoi" id="field_phanKhoi"
+                        [(ngModel)]="donVi.phanKhoi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.ghiChu" for="field_ghiChu">Ghi Chu</label>
+                    <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
+                        [(ngModel)]="donVi.ghiChu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="donVi.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donVi.donVi" for="field_donVi">Don Vi</label>
+                    <select class="form-control" id="field_donVi" name="donVi" [(ngModel)]="donVi.donVi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="donViOption.id === donVi.donVi?.id ? donVi.donVi : donViOption" *ngFor="let donViOption of donvis; trackBy: trackDonViById">{{donViOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

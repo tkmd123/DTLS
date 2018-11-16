@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.thaoTac.home.title">Thao Tacs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-thao-tac" [routerLink]="['/thao-tac/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.thaoTac.home.createLabel">
+            Create new Thao Tac
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.thaoTac.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="thaoTacs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.thaoTac.moTaKetQua">Mo Ta Ket Qua</span></th>
+            <th><span jhiTranslate="dtlsApp.thaoTac.trangThaiXuLy">Trang Thai Xu Ly</span></th>
+            <th><span jhiTranslate="dtlsApp.thaoTac.isDangThucHien">Is Dang Thuc Hien</span></th>
+            <th><span jhiTranslate="dtlsApp.thaoTac.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.thaoTac.mauXetNghiem">Mau Xet Nghiem</span></th>
+            <th><span jhiTranslate="dtlsApp.thaoTac.loaiThaoTac">Loai Thao Tac</span></th>
+            <th><span jhiTranslate="dtlsApp.thaoTac.phongBan">Phong Ban</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let thaoTac of thaoTacs ;trackBy: trackId">
+                <td><a [routerLink]="['/thao-tac', thaoTac.id, 'view' ]">{{thaoTac.id}}</a></td>
+                <td>{{thaoTac.moTaKetQua}}</td>
+                <td>{{thaoTac.trangThaiXuLy}}</td>
+                <td>{{thaoTac.isDangThucHien}}</td>
+                <td>{{thaoTac.isDeleted}}</td>
+                <td>
+                    <div *ngIf="thaoTac.mauXetNghiem">
+                        <a [routerLink]="['../mau-xet-nghiem', thaoTac.mauXetNghiem?.id, 'view' ]" >{{thaoTac.mauXetNghiem?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="thaoTac.loaiThaoTac">
+                        <a [routerLink]="['../loai-thao-tac', thaoTac.loaiThaoTac?.id, 'view' ]" >{{thaoTac.loaiThaoTac?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="thaoTac.phongBan">
+                        <a [routerLink]="['../phong-ban', thaoTac.phongBan?.id, 'view' ]" >{{thaoTac.phongBan?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/thao-tac', thaoTac.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/thao-tac', thaoTac.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'thao-tac/'+ thaoTac.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

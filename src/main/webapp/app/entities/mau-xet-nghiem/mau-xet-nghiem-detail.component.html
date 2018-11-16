@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mauXetNghiem">
+            <h2><span jhiTranslate="dtlsApp.mauXetNghiem.detail.title">Mau Xet Nghiem</span> {{mauXetNghiem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.maMauXetNghiem">Ma Mau Xet Nghiem</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.maMauXetNghiem}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.nguoiTiepNhan">Nguoi Tiep Nhan</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.nguoiTiepNhan}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.ngayLayMau">Ngay Lay Mau</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.ngayLayMau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.ngayTiepNhan">Ngay Tiep Nhan</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.ngayTiepNhan}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.trangThaiXuLy">Trang Thai Xu Ly</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.trangThaiXuLy}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.ghiChu">Ghi Chu</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.ghiChu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{mauXetNghiem.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.hoSoThanNhan">Ho So Than Nhan</span></dt>
+                <dd>
+                    <div *ngIf="mauXetNghiem.hoSoThanNhan">
+                        <a [routerLink]="['/ho-so-than-nhan', mauXetNghiem.hoSoThanNhan?.id, 'view']">{{mauXetNghiem.hoSoThanNhan?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.haiCotLietSi">Hai Cot Liet Si</span></dt>
+                <dd>
+                    <div *ngIf="mauXetNghiem.haiCotLietSi">
+                        <a [routerLink]="['/hai-cot-liet-si', mauXetNghiem.haiCotLietSi?.id, 'view']">{{mauXetNghiem.haiCotLietSi?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.loaiMauXetNghiem">Loai Mau Xet Nghiem</span></dt>
+                <dd>
+                    <div *ngIf="mauXetNghiem.loaiMauXetNghiem">
+                        <a [routerLink]="['/loai-mau-xet-nghiem', mauXetNghiem.loaiMauXetNghiem?.id, 'view']">{{mauXetNghiem.loaiMauXetNghiem?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.mauThongTinADN">Mau Thong Tin ADN</span></dt>
+                <dd>
+                    <div *ngIf="mauXetNghiem.mauThongTinADN">
+                        <a [routerLink]="['/thong-tin-adn', mauXetNghiem.mauThongTinADN?.id, 'view']">{{mauXetNghiem.mauThongTinADN?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauXetNghiem.loaiThaoTac">Loai Thao Tac</span></dt>
+                <dd>
+                    <div *ngIf="mauXetNghiem.loaiThaoTac">
+                        <a [routerLink]="['/loai-thao-tac', mauXetNghiem.loaiThaoTac?.id, 'view']">{{mauXetNghiem.loaiThaoTac?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mau-xet-nghiem', mauXetNghiem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

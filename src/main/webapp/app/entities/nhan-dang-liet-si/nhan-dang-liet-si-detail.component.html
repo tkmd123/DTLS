@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nhanDangLietSi">
+            <h2><span jhiTranslate="dtlsApp.nhanDangLietSi.detail.title">Nhan Dang Liet Si</span> {{nhanDangLietSi.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.nhanDangLietSi.giaTri">Gia Tri</span></dt>
+                <dd>
+                    <span>{{nhanDangLietSi.giaTri}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nhanDangLietSi.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{nhanDangLietSi.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nhanDangLietSi.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{nhanDangLietSi.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nhanDangLietSi.hoSoLietSi">Ho So Liet Si</span></dt>
+                <dd>
+                    <div *ngIf="nhanDangLietSi.hoSoLietSi">
+                        <a [routerLink]="['/ho-so-liet-si', nhanDangLietSi.hoSoLietSi?.id, 'view']">{{nhanDangLietSi.hoSoLietSi?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nhanDangLietSi.nhanDang">Nhan Dang</span></dt>
+                <dd>
+                    <div *ngIf="nhanDangLietSi.nhanDang">
+                        <a [routerLink]="['/nhan-dang', nhanDangLietSi.nhanDang?.id, 'view']">{{nhanDangLietSi.nhanDang?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nhan-dang-liet-si', nhanDangLietSi.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
