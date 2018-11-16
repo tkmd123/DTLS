@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="thongTinADN">
+            <h2><span jhiTranslate="dtlsApp.thongTinADN.detail.title">Thong Tin ADN</span> {{thongTinADN.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.thongTinADN.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{thongTinADN.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinADN.fileDuLieu">File Du Lieu</span></dt>
+                <dd>
+                    <span>{{thongTinADN.fileDuLieu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinADN.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{thongTinADN.isDeleted}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/thong-tin-adn', thongTinADN.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

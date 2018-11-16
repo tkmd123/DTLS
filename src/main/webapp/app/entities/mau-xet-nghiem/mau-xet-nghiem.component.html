@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.mauXetNghiem.home.title">Mau Xet Nghiems</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mau-xet-nghiem" [routerLink]="['/mau-xet-nghiem/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.mauXetNghiem.home.createLabel">
+            Create new Mau Xet Nghiem
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.mauXetNghiem.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mauXetNghiems">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maMauXetNghiem"><span jhiTranslate="dtlsApp.mauXetNghiem.maMauXetNghiem">Ma Mau Xet Nghiem</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nguoiTiepNhan"><span jhiTranslate="dtlsApp.mauXetNghiem.nguoiTiepNhan">Nguoi Tiep Nhan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ngayLayMau"><span jhiTranslate="dtlsApp.mauXetNghiem.ngayLayMau">Ngay Lay Mau</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ngayTiepNhan"><span jhiTranslate="dtlsApp.mauXetNghiem.ngayTiepNhan">Ngay Tiep Nhan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="trangThaiXuLy"><span jhiTranslate="dtlsApp.mauXetNghiem.trangThaiXuLy">Trang Thai Xu Ly</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="moTa"><span jhiTranslate="dtlsApp.mauXetNghiem.moTa">Mo Ta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ghiChu"><span jhiTranslate="dtlsApp.mauXetNghiem.ghiChu">Ghi Chu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDeleted"><span jhiTranslate="dtlsApp.mauXetNghiem.isDeleted">Is Deleted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hoSoThanNhan.id"><span jhiTranslate="dtlsApp.mauXetNghiem.hoSoThanNhan">Ho So Than Nhan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="haiCotLietSi.id"><span jhiTranslate="dtlsApp.mauXetNghiem.haiCotLietSi">Hai Cot Liet Si</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="loaiMauXetNghiem.id"><span jhiTranslate="dtlsApp.mauXetNghiem.loaiMauXetNghiem">Loai Mau Xet Nghiem</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mauThongTinADN.id"><span jhiTranslate="dtlsApp.mauXetNghiem.mauThongTinADN">Mau Thong Tin ADN</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="loaiThaoTac.id"><span jhiTranslate="dtlsApp.mauXetNghiem.loaiThaoTac">Loai Thao Tac</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mauXetNghiem of mauXetNghiems ;trackBy: trackId">
+                <td><a [routerLink]="['/mau-xet-nghiem', mauXetNghiem.id, 'view' ]">{{mauXetNghiem.id}}</a></td>
+                <td>{{mauXetNghiem.maMauXetNghiem}}</td>
+                <td>{{mauXetNghiem.nguoiTiepNhan}}</td>
+                <td>{{mauXetNghiem.ngayLayMau | date:'medium'}}</td>
+                <td>{{mauXetNghiem.ngayTiepNhan | date:'medium'}}</td>
+                <td>{{mauXetNghiem.trangThaiXuLy}}</td>
+                <td>{{mauXetNghiem.moTa}}</td>
+                <td>{{mauXetNghiem.ghiChu}}</td>
+                <td>{{mauXetNghiem.isDeleted}}</td>
+                <td>
+                    <div *ngIf="mauXetNghiem.hoSoThanNhan">
+                        <a [routerLink]="['../ho-so-than-nhan', mauXetNghiem.hoSoThanNhan?.id, 'view' ]" >{{mauXetNghiem.hoSoThanNhan?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="mauXetNghiem.haiCotLietSi">
+                        <a [routerLink]="['../hai-cot-liet-si', mauXetNghiem.haiCotLietSi?.id, 'view' ]" >{{mauXetNghiem.haiCotLietSi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="mauXetNghiem.loaiMauXetNghiem">
+                        <a [routerLink]="['../loai-mau-xet-nghiem', mauXetNghiem.loaiMauXetNghiem?.id, 'view' ]" >{{mauXetNghiem.loaiMauXetNghiem?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="mauXetNghiem.mauThongTinADN">
+                        <a [routerLink]="['../thong-tin-adn', mauXetNghiem.mauThongTinADN?.id, 'view' ]" >{{mauXetNghiem.mauThongTinADN?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="mauXetNghiem.loaiThaoTac">
+                        <a [routerLink]="['../loai-thao-tac', mauXetNghiem.loaiThaoTac?.id, 'view' ]" >{{mauXetNghiem.loaiThaoTac?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/mau-xet-nghiem', mauXetNghiem.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/mau-xet-nghiem', mauXetNghiem.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mau-xet-nghiem/'+ mauXetNghiem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="mauXetNghiems && mauXetNghiems.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

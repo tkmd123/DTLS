@@ -1,0 +1,21 @@
+{
+    "name": "TinhThanh",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tinhThanhQuanHuyen",
+            "otherEntityName": "quanHuyen",
+            "otherEntityRelationshipName": "tinhThanh"
+        }
+    ],
+    "changelogDate": "20181116110357",
+    "entityTableName": "tinh_thanh",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

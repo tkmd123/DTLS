@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.donViThoiKy.home.title">Don Vi Thoi Kies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-don-vi-thoi-ky" [routerLink]="['/don-vi-thoi-ky/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.donViThoiKy.home.createLabel">
+            Create new Don Vi Thoi Ky
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.donViThoiKy.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="donViThoiKies">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.tuNam">Tu Nam</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.denNam">Den Nam</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.diaDiemMoTa">Dia Diem Mo Ta</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.diaDiemXa">Dia Diem Xa</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.diaDiemHuyen">Dia Diem Huyen</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.diaDiemTinh">Dia Diem Tinh</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.ghiChu">Ghi Chu</span></th>
+            <th><span jhiTranslate="dtlsApp.donViThoiKy.donVi">Don Vi</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let donViThoiKy of donViThoiKies ;trackBy: trackId">
+                <td><a [routerLink]="['/don-vi-thoi-ky', donViThoiKy.id, 'view' ]">{{donViThoiKy.id}}</a></td>
+                <td>{{donViThoiKy.tuNam}}</td>
+                <td>{{donViThoiKy.denNam}}</td>
+                <td>{{donViThoiKy.diaDiemMoTa}}</td>
+                <td>{{donViThoiKy.diaDiemXa}}</td>
+                <td>{{donViThoiKy.diaDiemHuyen}}</td>
+                <td>{{donViThoiKy.diaDiemTinh}}</td>
+                <td>{{donViThoiKy.isDeleted}}</td>
+                <td>{{donViThoiKy.ghiChu}}</td>
+                <td>
+                    <div *ngIf="donViThoiKy.donVi">
+                        <a [routerLink]="['../don-vi', donViThoiKy.donVi?.id, 'view' ]" >{{donViThoiKy.donVi?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/don-vi-thoi-ky', donViThoiKy.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/don-vi-thoi-ky', donViThoiKy.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'don-vi-thoi-ky/'+ donViThoiKy.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-nhan-dang-liet-si-heading" jhiTranslate="dtlsApp.nhanDangLietSi.home.createOrEditLabel">Create or edit a Nhan Dang Liet Si</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!nhanDangLietSi.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="nhanDangLietSi.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDangLietSi.giaTri" for="field_giaTri">Gia Tri</label>
+                    <input type="text" class="form-control" name="giaTri" id="field_giaTri"
+                        [(ngModel)]="nhanDangLietSi.giaTri" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDangLietSi.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="nhanDangLietSi.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDangLietSi.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="nhanDangLietSi.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDangLietSi.hoSoLietSi" for="field_hoSoLietSi">Ho So Liet Si</label>
+                    <select class="form-control" id="field_hoSoLietSi" name="hoSoLietSi" [(ngModel)]="nhanDangLietSi.hoSoLietSi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hoSoLietSiOption.id === nhanDangLietSi.hoSoLietSi?.id ? nhanDangLietSi.hoSoLietSi : hoSoLietSiOption" *ngFor="let hoSoLietSiOption of hosolietsis; trackBy: trackHoSoLietSiById">{{hoSoLietSiOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDangLietSi.nhanDang" for="field_nhanDang">Nhan Dang</label>
+                    <select class="form-control" id="field_nhanDang" name="nhanDang" [(ngModel)]="nhanDangLietSi.nhanDang" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nhanDangOption.id === nhanDangLietSi.nhanDang?.id ? nhanDangLietSi.nhanDang : nhanDangOption" *ngFor="let nhanDangOption of nhandangs; trackBy: trackNhanDangById">{{nhanDangOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

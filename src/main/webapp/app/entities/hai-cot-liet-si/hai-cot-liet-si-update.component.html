@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hai-cot-liet-si-heading" jhiTranslate="dtlsApp.haiCotLietSi.home.createOrEditLabel">Create or edit a Hai Cot Liet Si</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!haiCotLietSi.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="haiCotLietSi.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="haiCotLietSi.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.coHaiCot" for="field_coHaiCot">Co Hai Cot</label>
+                    <input type="checkbox" class="form-control" name="coHaiCot" id="field_coHaiCot"
+                        [(ngModel)]="haiCotLietSi.coHaiCot" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="haiCotLietSi.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.hoSoLietSi" for="field_hoSoLietSi">Ho So Liet Si</label>
+                    <select class="form-control" id="field_hoSoLietSi" name="hoSoLietSi" [(ngModel)]="haiCotLietSi.hoSoLietSi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hoSoLietSiOption.id === haiCotLietSi.hoSoLietSi?.id ? haiCotLietSi.hoSoLietSi : hoSoLietSiOption" *ngFor="let hoSoLietSiOption of hosolietsis; trackBy: trackHoSoLietSiById">{{hoSoLietSiOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.thongTinKhaiQuat" for="field_thongTinKhaiQuat">Thong Tin Khai Quat</label>
+                    <select class="form-control" id="field_thongTinKhaiQuat" name="thongTinKhaiQuat" [(ngModel)]="haiCotLietSi.thongTinKhaiQuat" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="thongTinKhaiQuatOption.id === haiCotLietSi.thongTinKhaiQuat?.id ? haiCotLietSi.thongTinKhaiQuat : thongTinKhaiQuatOption" *ngFor="let thongTinKhaiQuatOption of thongtinkhaiquats; trackBy: trackThongTinKhaiQuatById">{{thongTinKhaiQuatOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

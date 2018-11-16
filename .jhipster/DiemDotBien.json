@@ -1,0 +1,48 @@
+{
+    "name": "DiemDotBien",
+    "fields": [
+        {
+            "fieldName": "viTri",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "giaTri",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "giaTri1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "giaTri2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "vungADN",
+            "otherEntityName": "vungADN",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "thongTinADN",
+            "otherEntityName": "thongTinADN",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181116110422",
+    "entityTableName": "diem_dot_bien",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

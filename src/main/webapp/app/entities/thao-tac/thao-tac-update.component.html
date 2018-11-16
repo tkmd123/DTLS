@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-thao-tac-heading" jhiTranslate="dtlsApp.thaoTac.home.createOrEditLabel">Create or edit a Thao Tac</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!thaoTac.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="thaoTac.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thaoTac.moTaKetQua" for="field_moTaKetQua">Mo Ta Ket Qua</label>
+                    <input type="text" class="form-control" name="moTaKetQua" id="field_moTaKetQua"
+                        [(ngModel)]="thaoTac.moTaKetQua" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thaoTac.trangThaiXuLy" for="field_trangThaiXuLy">Trang Thai Xu Ly</label>
+                    <input type="checkbox" class="form-control" name="trangThaiXuLy" id="field_trangThaiXuLy"
+                        [(ngModel)]="thaoTac.trangThaiXuLy" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thaoTac.isDangThucHien" for="field_isDangThucHien">Is Dang Thuc Hien</label>
+                    <input type="checkbox" class="form-control" name="isDangThucHien" id="field_isDangThucHien"
+                        [(ngModel)]="thaoTac.isDangThucHien" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thaoTac.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="thaoTac.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thaoTac.mauXetNghiem" for="field_mauXetNghiem">Mau Xet Nghiem</label>
+                    <select class="form-control" id="field_mauXetNghiem" name="mauXetNghiem" [(ngModel)]="thaoTac.mauXetNghiem" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mauXetNghiemOption.id === thaoTac.mauXetNghiem?.id ? thaoTac.mauXetNghiem : mauXetNghiemOption" *ngFor="let mauXetNghiemOption of mauxetnghiems; trackBy: trackMauXetNghiemById">{{mauXetNghiemOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thaoTac.loaiThaoTac" for="field_loaiThaoTac">Loai Thao Tac</label>
+                    <select class="form-control" id="field_loaiThaoTac" name="loaiThaoTac" [(ngModel)]="thaoTac.loaiThaoTac" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="loaiThaoTacOption.id === thaoTac.loaiThaoTac?.id ? thaoTac.loaiThaoTac : loaiThaoTacOption" *ngFor="let loaiThaoTacOption of loaithaotacs; trackBy: trackLoaiThaoTacById">{{loaiThaoTacOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thaoTac.phongBan" for="field_phongBan">Phong Ban</label>
+                    <select class="form-control" id="field_phongBan" name="phongBan" [(ngModel)]="thaoTac.phongBan" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="phongBanOption.id === thaoTac.phongBan?.id ? thaoTac.phongBan : phongBanOption" *ngFor="let phongBanOption of phongbans; trackBy: trackPhongBanById">{{phongBanOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.hinhThaiHaiCot.home.title">Hinh Thai Hai Cots</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hinh-thai-hai-cot" [routerLink]="['/hinh-thai-hai-cot/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.hinhThaiHaiCot.home.createLabel">
+            Create new Hinh Thai Hai Cot
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.hinhThaiHaiCot.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="hinhThaiHaiCots">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.hinhThaiHaiCot.giaTri">Gia Tri</span></th>
+            <th><span jhiTranslate="dtlsApp.hinhThaiHaiCot.moTa">Mo Ta</span></th>
+            <th><span jhiTranslate="dtlsApp.hinhThaiHaiCot.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.hinhThaiHaiCot.loaiHinhThaiHaiCot">Loai Hinh Thai Hai Cot</span></th>
+            <th><span jhiTranslate="dtlsApp.hinhThaiHaiCot.haiCotLietSi">Hai Cot Liet Si</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hinhThaiHaiCot of hinhThaiHaiCots ;trackBy: trackId">
+                <td><a [routerLink]="['/hinh-thai-hai-cot', hinhThaiHaiCot.id, 'view' ]">{{hinhThaiHaiCot.id}}</a></td>
+                <td>{{hinhThaiHaiCot.giaTri}}</td>
+                <td>{{hinhThaiHaiCot.moTa}}</td>
+                <td>{{hinhThaiHaiCot.isDeleted}}</td>
+                <td>
+                    <div *ngIf="hinhThaiHaiCot.loaiHinhThaiHaiCot">
+                        <a [routerLink]="['../loai-hinh-thai-hai-cot', hinhThaiHaiCot.loaiHinhThaiHaiCot?.id, 'view' ]" >{{hinhThaiHaiCot.loaiHinhThaiHaiCot?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="hinhThaiHaiCot.haiCotLietSi">
+                        <a [routerLink]="['../hai-cot-liet-si', hinhThaiHaiCot.haiCotLietSi?.id, 'view' ]" >{{hinhThaiHaiCot.haiCotLietSi?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/hinh-thai-hai-cot', hinhThaiHaiCot.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/hinh-thai-hai-cot', hinhThaiHaiCot.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'hinh-thai-hai-cot/'+ hinhThaiHaiCot.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
