@@ -1,0 +1,292 @@
+entity TinhThanh{}
+entity QuanHuyen{}
+entity PhuongXa{}
+
+entity CapBac {
+maCapBac String,
+tenCapBac String,
+moTa String,
+isDeleted Boolean
+}
+
+entity ChucVu {
+maChucVu String,
+tenChucVu String,
+moTa String,
+isDeleted Boolean
+}
+
+entity HoSoLietSi {	
+ maCCS String
+ ,maLietSi String
+ ,hoTen String
+ ,tenKhac String
+ ,biDanh String
+ ,gioiTinh String
+ ,namSinh String
+ ,queThon String
+ ,queXa String
+ ,queHuyen String
+ ,queTinh String
+ ,namNhapNgu Integer
+ ,namXuatNgu Integer
+ ,namTaiNgu Integer
+ ,namDiB String
+ ,hySinhNgay Integer
+ ,hySinhThang Integer
+ ,hySinhNam Integer
+ ,hySinhLyDo String
+ ,hySinhDonVi String
+ ,hySinhTranDanh String
+ ,hySinhDiaDiem String
+ ,hySinhXa String
+ ,hySinhHuyen String
+ ,hySinhTinh String
+ ,anTangDiaDiem String
+ ,anTangXa String
+ ,anTangHuyen String
+ ,anTangTinh String
+ ,ngayBaoTu String
+ ,giayBaoTu String
+ ,vatDungKemTheo String
+ ,ghiChu String
+ ,isDeleted Boolean
+ ,trangThaiXacMinh String
+}
+
+entity NhanDang {
+maNhanDang String,
+tenNhanDang String,
+donViTinh String,
+moTa String,
+isDeleted Boolean
+}
+
+entity NhanDangLietSi {
+giaTri String,
+moTa String,
+isDeleted Boolean
+}
+
+entity DonVi{
+maDonVi String
+,tenDonVi String
+,tenTat String
+,phanMuc String
+,phanCap String
+,phanKhoi String
+,ghiChu String
+,isDeleted Boolean
+}
+entity DonViThoiKy {
+tuNam Integer,
+denNam Integer,
+diaDiemMoTa String,
+diaDiemXa String,
+diaDiemHuyen String,
+diaDiemTinh String,
+isDeleted Boolean,
+ghiChu String
+}
+
+entity QuanHeThanNhan {
+maQuanHe String,
+loaiQuanHe String,
+moTa String,
+isDeleted Boolean
+}
+
+entity HoSoThanNhan {
+maThanNhan String,
+isLayMau Boolean,
+hoTen String,
+namSinh Instant,
+gioiTinh String,
+soCMT String,
+diaChi String,
+dienThoaiChinh String,
+dienThoaiPhu String,
+email String,
+ghiChu String,
+isDeleted Boolean
+}
+entity ThanNhanLietSi {
+moTa String,
+isDeleted Boolean
+}
+
+entity ThongTinMo {
+khuMo String,
+loMo String,
+hangMo Integer,
+soMo Integer,
+moTa String,
+isDeleted Boolean,
+}
+
+entity NghiaTrang {
+maNghiaTrang String,
+tenNghiaTrang String,
+diaChi String,
+nguoiLienHe String,
+dienThoai String,
+email String,
+moTa String,
+isDeleted Boolean
+}
+
+entity ThongTinKhaiQuat {
+maKhaiQuat String,
+nguoiKhaiQuat String,
+donViKhaiQuat String,
+thoiGianKhaiQuat Instant,
+
+} 
+
+entity LoaiDiVat {
+maDiVat String,
+loaiDiVat String,
+moTa String,
+isDeleted Boolean
+}
+
+entity DiVat {
+moTa String,
+isDeleted Boolean
+}
+
+entity LoaiHinhThaiHaiCot {
+maHinhThai String,
+tenHinhThai String,
+moTa String,
+isDeleted Boolean
+}
+
+entity HaiCotLietSi {
+moTa String,
+coHaiCot Boolean,
+isDeleted Boolean
+}
+
+entity HinhThaiHaiCot {
+giaTri String,
+moTa String,
+isDeleted Boolean
+}
+
+entity LoaiMauXetNghiem {
+maLoaiMau String,
+tenLoaiMau String,
+moTa String,
+isDeleted Boolean
+}
+
+entity MauXetNghiem {
+maMauXetNghiem String,
+nguoiTiepNhan String,
+ngayLayMau Instant,
+ngayTiepNhan Instant,
+trangThaiXuLy String,
+moTa String,
+ghiChu String,
+isDeleted Boolean
+}
+
+entity VungADN {
+maVungADN String,
+tenVungADN String,
+moTa String,
+isDeleted Boolean
+}
+entity ThongTinADN {
+moTa String,
+fileDuLieu String,
+isDeleted Boolean
+}
+entity DiemDotBien {
+viTri Integer,
+giaTri String,
+giaTri1 String,
+giaTri2 String,
+isDeleted Boolean
+}
+entity LoaiThaoTac {
+maLoaiThaoTac String,
+tenLoaiThaoTac String,
+moTa String,
+isDeleted Boolean
+}
+
+// Moi mau se co duy nhat 1 thao tac dang thuc hien
+// Neu Trang thai xu ly la OK va la dang thuc hien, 
+// phong ban xu ly tiep theo co the tiep nhan
+// Sau khi tiep nhan, thao tac cua phong ban do se duoc sinh ra
+// Trang thai se la dang thuc hien
+entity ThaoTac {
+moTaKetQua String,
+trangThaiXuLy Boolean,
+isDangThucHien Boolean,
+isDeleted Boolean
+}
+entity PhongBan {
+maPhongBan String,
+tenPhongBan String,
+moTa String,
+isActive Boolean,
+isDeleted Boolean
+}
+
+relationship OneToMany {
+	TinhThanh{tinhThanhQuanHuyen} to QuanHuyen,
+    QuanHuyen{quanHuyenPhuongXa} to PhuongXa,
+	HoSoLietSi{lietSi} to ThanNhanLietSi,
+    HoSoThanNhan{thanNhan} to ThanNhanLietSi,
+    HoSoLietSi{lietSiMo} to HaiCotLietSi,
+    ThongTinMo{moLietSi} to ThongTinKhaiQuat,
+    ThongTinKhaiQuat{khaiQuatHaiCot} to HaiCotLietSi,
+    ThongTinKhaiQuat{khaiQuatDiVat} to DiVat,
+    LoaiDiVat{loaiDiVat} to DiVat,
+    HaiCotLietSi{thongTinHinhThaiHoc} to HinhThaiHaiCot,
+    LoaiHinhThaiHaiCot{loaiHinhThaiHaiCot} to HinhThaiHaiCot,
+    NghiaTrang{nghiaTrangMo} to ThongTinMo,
+    LoaiMauXetNghiem{loaiMauXetNghiem} to MauXetNghiem,
+    HaiCotLietSi{haiCotMau} to MauXetNghiem,
+    HoSoThanNhan{thanNhanMau} to MauXetNghiem,
+    VungADN{vungADN} to DiemDotBien,
+    ThongTinADN{thongTinADNDotBien} to DiemDotBien,
+    MauXetNghiem{mauPhanTich} to ThaoTac,
+    LoaiThaoTac{thaoTacHienTai} to MauXetNghiem,
+    PhongBan{phongLabPhanTich} to ThaoTac,
+    LoaiThaoTac{loaiThaoTac} to ThaoTac,
+    LoaiThaoTac{thaoTacTiepTheo} to LoaiThaoTac,
+    PhongBan{phongBanThaoTac} to LoaiThaoTac,
+    PhuongXa{phuongXaNghiaTrang} to NghiaTrang,
+    PhuongXa{phuongXaLietSi} to HoSoLietSi,
+    PhuongXa{phuongXaThanNhan} to HoSoThanNhan,
+    DonVi{donViHySinh} to HoSoLietSi,
+    DonVi{donViHuanLuyen} to HoSoLietSi,
+    DonVi{donViQuanLy} to DonVi,
+    DonVi{donViThoiKy} to DonViThoiKy,
+    CapBac{capBacLietSi} to HoSoLietSi,
+    ChucVu{chucVuLietSi} to HoSoLietSi,
+    NhanDang{nhanDangLietSi} to NhanDangLietSi,
+    HoSoLietSi{lietSiNhanDang} to NhanDangLietSi,
+    QuanHeThanNhan{quanHeThanNhan} to ThanNhanLietSi
+}
+
+relationship OneToOne {
+	MauXetNghiem{mauThongTinADN} to ThongTinADN
+}
+
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
