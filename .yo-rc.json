@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "DTLS",
+    "packageName": "vn.homtech.dtls",
+    "packageFolder": "vn/homtech/dtls",
+    "serverPort": 8286,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "enableSwaggerCodegen": "true",
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "vi",
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.7.0",
+    "jwtSecretKey": "NDVhNTFmYmFlMTViYTUxNDUyYTIzZTRjMTZjNzQ5MDA5ZGIzMGE0MjFkZDIxNzVkNmY5NjMzZmY1ZWZiY2E3NzRhZTczYjEyMzJlZGQ3YWQ1MjlhYWNhNjBhM2RiZmQ0NzlmMzQzMGI5Njg5ODJmNjIwOThiMTNjODFmNjk4MTc=",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "tkmd123",
+  "repository-name": "DTLS"
+}
