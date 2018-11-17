@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hoSoThanNhan">
+            <h2><span jhiTranslate="dtlsApp.hoSoThanNhan.detail.title">Ho So Than Nhan</span> {{hoSoThanNhan.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.maThanNhan">Ma Than Nhan</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.maThanNhan}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.isLayMau">Is Lay Mau</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.isLayMau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.hoTen">Ho Ten</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.hoTen}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.namSinh">Nam Sinh</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.namSinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.gioiTinh">Gioi Tinh</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.gioiTinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.soCMT">So CMT</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.soCMT}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.diaChi">Dia Chi</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.diaChi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.dienThoaiChinh">Dien Thoai Chinh</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.dienThoaiChinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.dienThoaiPhu">Dien Thoai Phu</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.dienThoaiPhu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.email">Email</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.ghiChu">Ghi Chu</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.ghiChu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.uDF1">U DF 1</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.uDF1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.uDF2">U DF 2</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.uDF2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.uDF3">U DF 3</span></dt>
+                <dd>
+                    <span>{{hoSoThanNhan.uDF3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoThanNhan.phuongXa">Phuong Xa</span></dt>
+                <dd>
+                    <div *ngIf="hoSoThanNhan.phuongXa">
+                        <a [routerLink]="['/phuong-xa', hoSoThanNhan.phuongXa?.id, 'view']">{{hoSoThanNhan.phuongXa?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ho-so-than-nhan', hoSoThanNhan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="chucVu">
+            <h2><span jhiTranslate="dtlsApp.chucVu.detail.title">Chuc Vu</span> {{chucVu.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.chucVu.maChucVu">Ma Chuc Vu</span></dt>
+                <dd>
+                    <span>{{chucVu.maChucVu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.chucVu.tenChucVu">Ten Chuc Vu</span></dt>
+                <dd>
+                    <span>{{chucVu.tenChucVu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.chucVu.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{chucVu.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.chucVu.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{chucVu.isDeleted}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/chuc-vu', chucVu.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

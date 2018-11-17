@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="loaiDiVat">
+            <h2><span jhiTranslate="dtlsApp.loaiDiVat.detail.title">Loai Di Vat</span> {{loaiDiVat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.loaiDiVat.maDiVat">Ma Di Vat</span></dt>
+                <dd>
+                    <span>{{loaiDiVat.maDiVat}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiDiVat.loaiDiVat">Loai Di Vat</span></dt>
+                <dd>
+                    <span>{{loaiDiVat.loaiDiVat}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiDiVat.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{loaiDiVat.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiDiVat.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{loaiDiVat.isDeleted}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/loai-di-vat', loaiDiVat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
