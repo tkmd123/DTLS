@@ -1,0 +1,111 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.hoSoThanNhan.home.title">Ho So Than Nhans</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ho-so-than-nhan" [routerLink]="['/ho-so-than-nhan/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.hoSoThanNhan.home.createLabel">
+            Create new Ho So Than Nhan
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.hoSoThanNhan.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="hoSoThanNhans">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maThanNhan"><span jhiTranslate="dtlsApp.hoSoThanNhan.maThanNhan">Ma Than Nhan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isLayMau"><span jhiTranslate="dtlsApp.hoSoThanNhan.isLayMau">Is Lay Mau</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hoTen"><span jhiTranslate="dtlsApp.hoSoThanNhan.hoTen">Ho Ten</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namSinh"><span jhiTranslate="dtlsApp.hoSoThanNhan.namSinh">Nam Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gioiTinh"><span jhiTranslate="dtlsApp.hoSoThanNhan.gioiTinh">Gioi Tinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="soCMT"><span jhiTranslate="dtlsApp.hoSoThanNhan.soCMT">So CMT</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diaChi"><span jhiTranslate="dtlsApp.hoSoThanNhan.diaChi">Dia Chi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dienThoaiChinh"><span jhiTranslate="dtlsApp.hoSoThanNhan.dienThoaiChinh">Dien Thoai Chinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dienThoaiPhu"><span jhiTranslate="dtlsApp.hoSoThanNhan.dienThoaiPhu">Dien Thoai Phu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="dtlsApp.hoSoThanNhan.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ghiChu"><span jhiTranslate="dtlsApp.hoSoThanNhan.ghiChu">Ghi Chu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDeleted"><span jhiTranslate="dtlsApp.hoSoThanNhan.isDeleted">Is Deleted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="uDF1"><span jhiTranslate="dtlsApp.hoSoThanNhan.uDF1">U DF 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="uDF2"><span jhiTranslate="dtlsApp.hoSoThanNhan.uDF2">U DF 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="uDF3"><span jhiTranslate="dtlsApp.hoSoThanNhan.uDF3">U DF 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phuongXa.id"><span jhiTranslate="dtlsApp.hoSoThanNhan.phuongXa">Phuong Xa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hoSoThanNhan of hoSoThanNhans ;trackBy: trackId">
+                <td><a [routerLink]="['/ho-so-than-nhan', hoSoThanNhan.id, 'view' ]">{{hoSoThanNhan.id}}</a></td>
+                <td>{{hoSoThanNhan.maThanNhan}}</td>
+                <td>{{hoSoThanNhan.isLayMau}}</td>
+                <td>{{hoSoThanNhan.hoTen}}</td>
+                <td>{{hoSoThanNhan.namSinh | date:'medium'}}</td>
+                <td>{{hoSoThanNhan.gioiTinh}}</td>
+                <td>{{hoSoThanNhan.soCMT}}</td>
+                <td>{{hoSoThanNhan.diaChi}}</td>
+                <td>{{hoSoThanNhan.dienThoaiChinh}}</td>
+                <td>{{hoSoThanNhan.dienThoaiPhu}}</td>
+                <td>{{hoSoThanNhan.email}}</td>
+                <td>{{hoSoThanNhan.ghiChu}}</td>
+                <td>{{hoSoThanNhan.isDeleted}}</td>
+                <td>{{hoSoThanNhan.uDF1}}</td>
+                <td>{{hoSoThanNhan.uDF2}}</td>
+                <td>{{hoSoThanNhan.uDF3}}</td>
+                <td>
+                    <div *ngIf="hoSoThanNhan.phuongXa">
+                        <a [routerLink]="['../phuong-xa', hoSoThanNhan.phuongXa?.id, 'view' ]" >{{hoSoThanNhan.phuongXa?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/ho-so-than-nhan', hoSoThanNhan.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ho-so-than-nhan', hoSoThanNhan.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ho-so-than-nhan/'+ hoSoThanNhan.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="hoSoThanNhans && hoSoThanNhans.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

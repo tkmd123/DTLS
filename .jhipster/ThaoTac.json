@@ -1,0 +1,50 @@
+{
+    "name": "ThaoTac",
+    "fields": [
+        {
+            "fieldName": "moTaKetQua",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "trangThaiXuLy",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isDangThucHien",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "mauXetNghiem",
+            "otherEntityName": "mauXetNghiem",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "loaiThaoTac",
+            "otherEntityName": "loaiThaoTac",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "phongBan",
+            "otherEntityName": "phongBan",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181117000658",
+    "entityTableName": "thao_tac",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

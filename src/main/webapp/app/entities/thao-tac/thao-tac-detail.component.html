@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="thaoTac">
+            <h2><span jhiTranslate="dtlsApp.thaoTac.detail.title">Thao Tac</span> {{thaoTac.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.thaoTac.moTaKetQua">Mo Ta Ket Qua</span></dt>
+                <dd>
+                    <span>{{thaoTac.moTaKetQua}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thaoTac.trangThaiXuLy">Trang Thai Xu Ly</span></dt>
+                <dd>
+                    <span>{{thaoTac.trangThaiXuLy}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thaoTac.isDangThucHien">Is Dang Thuc Hien</span></dt>
+                <dd>
+                    <span>{{thaoTac.isDangThucHien}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thaoTac.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{thaoTac.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thaoTac.mauXetNghiem">Mau Xet Nghiem</span></dt>
+                <dd>
+                    <div *ngIf="thaoTac.mauXetNghiem">
+                        <a [routerLink]="['/mau-xet-nghiem', thaoTac.mauXetNghiem?.id, 'view']">{{thaoTac.mauXetNghiem?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thaoTac.loaiThaoTac">Loai Thao Tac</span></dt>
+                <dd>
+                    <div *ngIf="thaoTac.loaiThaoTac">
+                        <a [routerLink]="['/loai-thao-tac', thaoTac.loaiThaoTac?.id, 'view']">{{thaoTac.loaiThaoTac?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thaoTac.phongBan">Phong Ban</span></dt>
+                <dd>
+                    <div *ngIf="thaoTac.phongBan">
+                        <a [routerLink]="['/phong-ban', thaoTac.phongBan?.id, 'view']">{{thaoTac.phongBan?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/thao-tac', thaoTac.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

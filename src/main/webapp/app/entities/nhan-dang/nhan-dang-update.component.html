@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-nhan-dang-heading" jhiTranslate="dtlsApp.nhanDang.home.createOrEditLabel">Create or edit a Nhan Dang</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!nhanDang.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="nhanDang.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDang.maNhanDang" for="field_maNhanDang">Ma Nhan Dang</label>
+                    <input type="text" class="form-control" name="maNhanDang" id="field_maNhanDang"
+                        [(ngModel)]="nhanDang.maNhanDang" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDang.tenNhanDang" for="field_tenNhanDang">Ten Nhan Dang</label>
+                    <input type="text" class="form-control" name="tenNhanDang" id="field_tenNhanDang"
+                        [(ngModel)]="nhanDang.tenNhanDang" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDang.donViTinh" for="field_donViTinh">Don Vi Tinh</label>
+                    <input type="text" class="form-control" name="donViTinh" id="field_donViTinh"
+                        [(ngModel)]="nhanDang.donViTinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDang.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="nhanDang.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanDang.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="nhanDang.isDeleted" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

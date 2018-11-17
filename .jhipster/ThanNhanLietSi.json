@@ -1,0 +1,42 @@
+{
+    "name": "ThanNhanLietSi",
+    "fields": [
+        {
+            "fieldName": "moTa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "hoSoLietSi",
+            "otherEntityName": "hoSoLietSi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "quanHeThanNhan",
+            "otherEntityName": "quanHeThanNhan",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "hoSoThanNhan",
+            "otherEntityName": "hoSoThanNhan",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181117000643",
+    "entityTableName": "than_nhan_liet_si",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

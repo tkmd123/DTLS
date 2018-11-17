@@ -1,0 +1,86 @@
+{
+    "name": "MauXetNghiem",
+    "fields": [
+        {
+            "fieldName": "maMauXetNghiem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nguoiTiepNhan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ngayLayMau",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "ngayTiepNhan",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "trangThaiXuLy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "moTa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ghiChu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "hoSoThanNhan",
+            "otherEntityName": "hoSoThanNhan",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "haiCotLietSi",
+            "otherEntityName": "haiCotLietSi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "loaiMauXetNghiem",
+            "otherEntityName": "loaiMauXetNghiem",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mauThongTinADN",
+            "otherEntityName": "thongTinADN",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "mauXetNghiem"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mauPhanTich",
+            "otherEntityName": "thaoTac",
+            "otherEntityRelationshipName": "mauXetNghiem"
+        },
+        {
+            "relationshipName": "loaiThaoTac",
+            "otherEntityName": "loaiThaoTac",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181117000653",
+    "entityTableName": "mau_xet_nghiem",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

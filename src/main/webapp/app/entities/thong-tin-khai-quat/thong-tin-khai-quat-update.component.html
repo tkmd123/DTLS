@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-thong-tin-khai-quat-heading" jhiTranslate="dtlsApp.thongTinKhaiQuat.home.createOrEditLabel">Create or edit a Thong Tin Khai Quat</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!thongTinKhaiQuat.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="thongTinKhaiQuat.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thongTinKhaiQuat.maKhaiQuat" for="field_maKhaiQuat">Ma Khai Quat</label>
+                    <input type="text" class="form-control" name="maKhaiQuat" id="field_maKhaiQuat"
+                        [(ngModel)]="thongTinKhaiQuat.maKhaiQuat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thongTinKhaiQuat.nguoiKhaiQuat" for="field_nguoiKhaiQuat">Nguoi Khai Quat</label>
+                    <input type="text" class="form-control" name="nguoiKhaiQuat" id="field_nguoiKhaiQuat"
+                        [(ngModel)]="thongTinKhaiQuat.nguoiKhaiQuat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thongTinKhaiQuat.donViKhaiQuat" for="field_donViKhaiQuat">Don Vi Khai Quat</label>
+                    <input type="text" class="form-control" name="donViKhaiQuat" id="field_donViKhaiQuat"
+                        [(ngModel)]="thongTinKhaiQuat.donViKhaiQuat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thongTinKhaiQuat.thoiGianKhaiQuat" for="field_thoiGianKhaiQuat">Thoi Gian Khai Quat</label>
+                    <div class="d-flex">
+                        <input id="field_thoiGianKhaiQuat" type="datetime-local" class="form-control" name="thoiGianKhaiQuat" [(ngModel)]="thoiGianKhaiQuat"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thongTinKhaiQuat.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="thongTinKhaiQuat.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.thongTinKhaiQuat.thongTinMo" for="field_thongTinMo">Thong Tin Mo</label>
+                    <select class="form-control" id="field_thongTinMo" name="thongTinMo" [(ngModel)]="thongTinKhaiQuat.thongTinMo" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="thongTinMoOption.id === thongTinKhaiQuat.thongTinMo?.id ? thongTinKhaiQuat.thongTinMo : thongTinMoOption" *ngFor="let thongTinMoOption of thongtinmos; trackBy: trackThongTinMoById">{{thongTinMoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

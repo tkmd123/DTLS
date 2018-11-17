@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="donVi">
+            <h2><span jhiTranslate="dtlsApp.donVi.detail.title">Don Vi</span> {{donVi.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.donVi.maDonVi">Ma Don Vi</span></dt>
+                <dd>
+                    <span>{{donVi.maDonVi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.tenDonVi">Ten Don Vi</span></dt>
+                <dd>
+                    <span>{{donVi.tenDonVi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.tenTat">Ten Tat</span></dt>
+                <dd>
+                    <span>{{donVi.tenTat}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.phanMuc">Phan Muc</span></dt>
+                <dd>
+                    <span>{{donVi.phanMuc}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.phanCap">Phan Cap</span></dt>
+                <dd>
+                    <span>{{donVi.phanCap}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.phanKhoi">Phan Khoi</span></dt>
+                <dd>
+                    <span>{{donVi.phanKhoi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{donVi.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.ghiChu">Ghi Chu</span></dt>
+                <dd>
+                    <span>{{donVi.ghiChu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{donVi.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.donVi.donVi">Don Vi</span></dt>
+                <dd>
+                    <div *ngIf="donVi.donVi">
+                        <a [routerLink]="['/don-vi', donVi.donVi?.id, 'view']">{{donVi.donVi?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/don-vi', donVi.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

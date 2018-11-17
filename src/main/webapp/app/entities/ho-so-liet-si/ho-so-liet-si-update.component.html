@@ -1,0 +1,249 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-ho-so-liet-si-heading" jhiTranslate="dtlsApp.hoSoLietSi.home.createOrEditLabel">Create or edit a Ho So Liet Si</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hoSoLietSi.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hoSoLietSi.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.maCCS" for="field_maCCS">Ma CCS</label>
+                    <input type="text" class="form-control" name="maCCS" id="field_maCCS"
+                        [(ngModel)]="hoSoLietSi.maCCS" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.maLietSi" for="field_maLietSi">Ma Liet Si</label>
+                    <input type="text" class="form-control" name="maLietSi" id="field_maLietSi"
+                        [(ngModel)]="hoSoLietSi.maLietSi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hoTen" for="field_hoTen">Ho Ten</label>
+                    <input type="text" class="form-control" name="hoTen" id="field_hoTen"
+                        [(ngModel)]="hoSoLietSi.hoTen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.tenKhac" for="field_tenKhac">Ten Khac</label>
+                    <input type="text" class="form-control" name="tenKhac" id="field_tenKhac"
+                        [(ngModel)]="hoSoLietSi.tenKhac" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.biDanh" for="field_biDanh">Bi Danh</label>
+                    <input type="text" class="form-control" name="biDanh" id="field_biDanh"
+                        [(ngModel)]="hoSoLietSi.biDanh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.gioiTinh" for="field_gioiTinh">Gioi Tinh</label>
+                    <input type="text" class="form-control" name="gioiTinh" id="field_gioiTinh"
+                        [(ngModel)]="hoSoLietSi.gioiTinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.namSinh" for="field_namSinh">Nam Sinh</label>
+                    <input type="text" class="form-control" name="namSinh" id="field_namSinh"
+                        [(ngModel)]="hoSoLietSi.namSinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.queThon" for="field_queThon">Que Thon</label>
+                    <input type="text" class="form-control" name="queThon" id="field_queThon"
+                        [(ngModel)]="hoSoLietSi.queThon" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.queXa" for="field_queXa">Que Xa</label>
+                    <input type="text" class="form-control" name="queXa" id="field_queXa"
+                        [(ngModel)]="hoSoLietSi.queXa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.queHuyen" for="field_queHuyen">Que Huyen</label>
+                    <input type="text" class="form-control" name="queHuyen" id="field_queHuyen"
+                        [(ngModel)]="hoSoLietSi.queHuyen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.queTinh" for="field_queTinh">Que Tinh</label>
+                    <input type="text" class="form-control" name="queTinh" id="field_queTinh"
+                        [(ngModel)]="hoSoLietSi.queTinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.namNhapNgu" for="field_namNhapNgu">Nam Nhap Ngu</label>
+                    <input type="number" class="form-control" name="namNhapNgu" id="field_namNhapNgu"
+                        [(ngModel)]="hoSoLietSi.namNhapNgu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.namXuatNgu" for="field_namXuatNgu">Nam Xuat Ngu</label>
+                    <input type="number" class="form-control" name="namXuatNgu" id="field_namXuatNgu"
+                        [(ngModel)]="hoSoLietSi.namXuatNgu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.namTaiNgu" for="field_namTaiNgu">Nam Tai Ngu</label>
+                    <input type="number" class="form-control" name="namTaiNgu" id="field_namTaiNgu"
+                        [(ngModel)]="hoSoLietSi.namTaiNgu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.namDiB" for="field_namDiB">Nam Di B</label>
+                    <input type="text" class="form-control" name="namDiB" id="field_namDiB"
+                        [(ngModel)]="hoSoLietSi.namDiB" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhNgay" for="field_hySinhNgay">Hy Sinh Ngay</label>
+                    <input type="number" class="form-control" name="hySinhNgay" id="field_hySinhNgay"
+                        [(ngModel)]="hoSoLietSi.hySinhNgay" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhThang" for="field_hySinhThang">Hy Sinh Thang</label>
+                    <input type="number" class="form-control" name="hySinhThang" id="field_hySinhThang"
+                        [(ngModel)]="hoSoLietSi.hySinhThang" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhNam" for="field_hySinhNam">Hy Sinh Nam</label>
+                    <input type="number" class="form-control" name="hySinhNam" id="field_hySinhNam"
+                        [(ngModel)]="hoSoLietSi.hySinhNam" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhLyDo" for="field_hySinhLyDo">Hy Sinh Ly Do</label>
+                    <input type="text" class="form-control" name="hySinhLyDo" id="field_hySinhLyDo"
+                        [(ngModel)]="hoSoLietSi.hySinhLyDo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhDonVi" for="field_hySinhDonVi">Hy Sinh Don Vi</label>
+                    <input type="text" class="form-control" name="hySinhDonVi" id="field_hySinhDonVi"
+                        [(ngModel)]="hoSoLietSi.hySinhDonVi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhTranDanh" for="field_hySinhTranDanh">Hy Sinh Tran Danh</label>
+                    <input type="text" class="form-control" name="hySinhTranDanh" id="field_hySinhTranDanh"
+                        [(ngModel)]="hoSoLietSi.hySinhTranDanh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhDiaDiem" for="field_hySinhDiaDiem">Hy Sinh Dia Diem</label>
+                    <input type="text" class="form-control" name="hySinhDiaDiem" id="field_hySinhDiaDiem"
+                        [(ngModel)]="hoSoLietSi.hySinhDiaDiem" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhXa" for="field_hySinhXa">Hy Sinh Xa</label>
+                    <input type="text" class="form-control" name="hySinhXa" id="field_hySinhXa"
+                        [(ngModel)]="hoSoLietSi.hySinhXa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhHuyen" for="field_hySinhHuyen">Hy Sinh Huyen</label>
+                    <input type="text" class="form-control" name="hySinhHuyen" id="field_hySinhHuyen"
+                        [(ngModel)]="hoSoLietSi.hySinhHuyen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.hySinhTinh" for="field_hySinhTinh">Hy Sinh Tinh</label>
+                    <input type="text" class="form-control" name="hySinhTinh" id="field_hySinhTinh"
+                        [(ngModel)]="hoSoLietSi.hySinhTinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.anTangDiaDiem" for="field_anTangDiaDiem">An Tang Dia Diem</label>
+                    <input type="text" class="form-control" name="anTangDiaDiem" id="field_anTangDiaDiem"
+                        [(ngModel)]="hoSoLietSi.anTangDiaDiem" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.anTangXa" for="field_anTangXa">An Tang Xa</label>
+                    <input type="text" class="form-control" name="anTangXa" id="field_anTangXa"
+                        [(ngModel)]="hoSoLietSi.anTangXa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.anTangHuyen" for="field_anTangHuyen">An Tang Huyen</label>
+                    <input type="text" class="form-control" name="anTangHuyen" id="field_anTangHuyen"
+                        [(ngModel)]="hoSoLietSi.anTangHuyen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.anTangTinh" for="field_anTangTinh">An Tang Tinh</label>
+                    <input type="text" class="form-control" name="anTangTinh" id="field_anTangTinh"
+                        [(ngModel)]="hoSoLietSi.anTangTinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.ngayBaoTu" for="field_ngayBaoTu">Ngay Bao Tu</label>
+                    <input type="text" class="form-control" name="ngayBaoTu" id="field_ngayBaoTu"
+                        [(ngModel)]="hoSoLietSi.ngayBaoTu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.giayBaoTu" for="field_giayBaoTu">Giay Bao Tu</label>
+                    <input type="text" class="form-control" name="giayBaoTu" id="field_giayBaoTu"
+                        [(ngModel)]="hoSoLietSi.giayBaoTu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.vatDungKemTheo" for="field_vatDungKemTheo">Vat Dung Kem Theo</label>
+                    <input type="text" class="form-control" name="vatDungKemTheo" id="field_vatDungKemTheo"
+                        [(ngModel)]="hoSoLietSi.vatDungKemTheo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.ghiChu" for="field_ghiChu">Ghi Chu</label>
+                    <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
+                        [(ngModel)]="hoSoLietSi.ghiChu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="hoSoLietSi.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.trangThaiXacMinh" for="field_trangThaiXacMinh">Trang Thai Xac Minh</label>
+                    <input type="text" class="form-control" name="trangThaiXacMinh" id="field_trangThaiXacMinh"
+                        [(ngModel)]="hoSoLietSi.trangThaiXacMinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.uDF1" for="field_uDF1">U DF 1</label>
+                    <input type="text" class="form-control" name="uDF1" id="field_uDF1"
+                        [(ngModel)]="hoSoLietSi.uDF1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.uDF2" for="field_uDF2">U DF 2</label>
+                    <input type="text" class="form-control" name="uDF2" id="field_uDF2"
+                        [(ngModel)]="hoSoLietSi.uDF2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.uDF3" for="field_uDF3">U DF 3</label>
+                    <input type="text" class="form-control" name="uDF3" id="field_uDF3"
+                        [(ngModel)]="hoSoLietSi.uDF3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.phuongXa" for="field_phuongXa">Phuong Xa</label>
+                    <select class="form-control" id="field_phuongXa" name="phuongXa" [(ngModel)]="hoSoLietSi.phuongXa" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="phuongXaOption.id === hoSoLietSi.phuongXa?.id ? hoSoLietSi.phuongXa : phuongXaOption" *ngFor="let phuongXaOption of phuongxas; trackBy: trackPhuongXaById">{{phuongXaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.capBac" for="field_capBac">Cap Bac</label>
+                    <select class="form-control" id="field_capBac" name="capBac" [(ngModel)]="hoSoLietSi.capBac" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="capBacOption.id === hoSoLietSi.capBac?.id ? hoSoLietSi.capBac : capBacOption" *ngFor="let capBacOption of capbacs; trackBy: trackCapBacById">{{capBacOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.chucVu" for="field_chucVu">Chuc Vu</label>
+                    <select class="form-control" id="field_chucVu" name="chucVu" [(ngModel)]="hoSoLietSi.chucVu" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="chucVuOption.id === hoSoLietSi.chucVu?.id ? hoSoLietSi.chucVu : chucVuOption" *ngFor="let chucVuOption of chucvus; trackBy: trackChucVuById">{{chucVuOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.donVi" for="field_donVi">Don Vi</label>
+                    <select class="form-control" id="field_donVi" name="donVi" [(ngModel)]="hoSoLietSi.donVi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="donViOption.id === hoSoLietSi.donVi?.id ? hoSoLietSi.donVi : donViOption" *ngFor="let donViOption of donvis; trackBy: trackDonViById">{{donViOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoLietSi.donVi" for="field_donVi">Don Vi</label>
+                    <select class="form-control" id="field_donVi" name="donVi" [(ngModel)]="hoSoLietSi.donVi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="donViOption.id === hoSoLietSi.donVi?.id ? hoSoLietSi.donVi : donViOption" *ngFor="let donViOption of donvis; trackBy: trackDonViById">{{donViOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
