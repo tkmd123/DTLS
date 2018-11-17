@@ -29,6 +29,180 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu>
+                    <li>
+                        <a class="dropdown-item" routerLink="tinh-thanh" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.tinhThanh">Tinh Thanh</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="quan-huyen" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.quanHuyen">Quan Huyen</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="phuong-xa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.phuongXa">Phuong Xa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="cap-bac" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.capBac">Cap Bac</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="chuc-vu" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.chucVu">Chuc Vu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ho-so-liet-si" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.hoSoLietSi">Ho So Liet Si</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="nhan-dang" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.nhanDang">Nhan Dang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="nhan-dang-liet-si" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.nhanDangLietSi">Nhan Dang Liet Si</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="don-vi" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.donVi">Don Vi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="don-vi-thoi-ky" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.donViThoiKy">Don Vi Thoi Ky</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="quan-he-than-nhan" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.quanHeThanNhan">Quan He Than Nhan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ho-so-than-nhan" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.hoSoThanNhan">Ho So Than Nhan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="than-nhan-liet-si" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.thanNhanLietSi">Than Nhan Liet Si</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="thong-tin-mo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.thongTinMo">Thong Tin Mo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="nghia-trang" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.nghiaTrang">Nghia Trang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="thong-tin-khai-quat" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.thongTinKhaiQuat">Thong Tin Khai Quat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="loai-di-vat" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.loaiDiVat">Loai Di Vat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="di-vat" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.diVat">Di Vat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="loai-hinh-thai-hai-cot" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.loaiHinhThaiHaiCot">Loai Hinh Thai Hai Cot</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="hai-cot-liet-si" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.haiCotLietSi">Hai Cot Liet Si</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="hinh-thai-hai-cot" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.hinhThaiHaiCot">Hinh Thai Hai Cot</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="loai-mau-xet-nghiem" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.loaiMauXetNghiem">Loai Mau Xet Nghiem</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="mau-xet-nghiem" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.mauXetNghiem">Mau Xet Nghiem</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="vung-adn" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.vungAdn">Vung Adn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="thong-tin-adn" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.thongTinAdn">Thong Tin Adn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="diem-dot-bien" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.diemDotBien">Diem Dot Bien</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="loai-thao-tac" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.loaiThaoTac">Loai Thao Tac</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="thao-tac" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.thaoTac">Thao Tac</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="phong-ban" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.phongBan">Phong Ban</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

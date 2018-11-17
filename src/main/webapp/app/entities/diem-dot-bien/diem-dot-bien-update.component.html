@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-diem-dot-bien-heading" jhiTranslate="dtlsApp.diemDotBien.home.createOrEditLabel">Create or edit a Diem Dot Bien</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!diemDotBien.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="diemDotBien.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.diemDotBien.viTri" for="field_viTri">Vi Tri</label>
+                    <input type="number" class="form-control" name="viTri" id="field_viTri"
+                        [(ngModel)]="diemDotBien.viTri" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.diemDotBien.giaTri" for="field_giaTri">Gia Tri</label>
+                    <input type="text" class="form-control" name="giaTri" id="field_giaTri"
+                        [(ngModel)]="diemDotBien.giaTri" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.diemDotBien.giaTri1" for="field_giaTri1">Gia Tri 1</label>
+                    <input type="text" class="form-control" name="giaTri1" id="field_giaTri1"
+                        [(ngModel)]="diemDotBien.giaTri1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.diemDotBien.giaTri2" for="field_giaTri2">Gia Tri 2</label>
+                    <input type="text" class="form-control" name="giaTri2" id="field_giaTri2"
+                        [(ngModel)]="diemDotBien.giaTri2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.diemDotBien.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="diemDotBien.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.diemDotBien.vungADN" for="field_vungADN">Vung ADN</label>
+                    <select class="form-control" id="field_vungADN" name="vungADN" [(ngModel)]="diemDotBien.vungADN" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vungADNOption.id === diemDotBien.vungADN?.id ? diemDotBien.vungADN : vungADNOption" *ngFor="let vungADNOption of vungadns; trackBy: trackVungADNById">{{vungADNOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.diemDotBien.thongTinADN" for="field_thongTinADN">Thong Tin ADN</label>
+                    <select class="form-control" id="field_thongTinADN" name="thongTinADN" [(ngModel)]="diemDotBien.thongTinADN" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="thongTinADNOption.id === diemDotBien.thongTinADN?.id ? diemDotBien.thongTinADN : thongTinADNOption" *ngFor="let thongTinADNOption of thongtinadns; trackBy: trackThongTinADNById">{{thongTinADNOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

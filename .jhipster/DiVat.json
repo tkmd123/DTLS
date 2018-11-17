@@ -1,0 +1,40 @@
+{
+    "name": "DiVat",
+    "fields": [
+        {
+            "fieldName": "giaTri",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "moTa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "thongTinKhaiQuat",
+            "otherEntityName": "thongTinKhaiQuat",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "loaiDiVat",
+            "otherEntityName": "loaiDiVat",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181117000648",
+    "entityTableName": "di_vat",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

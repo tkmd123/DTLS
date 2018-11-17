@@ -1,0 +1,54 @@
+{
+    "name": "DonViThoiKy",
+    "fields": [
+        {
+            "fieldName": "tuNam",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "denNam",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "diaDiemMoTa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diaDiemXa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diaDiemHuyen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diaDiemTinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ghiChu",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "donVi",
+            "otherEntityName": "donVi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181117000640",
+    "entityTableName": "don_vi_thoi_ky",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

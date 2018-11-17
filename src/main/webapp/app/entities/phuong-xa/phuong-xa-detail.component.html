@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="phuongXa">
+            <h2><span jhiTranslate="dtlsApp.phuongXa.detail.title">Phuong Xa</span> {{phuongXa.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.phuongXa.maXa">Ma Xa</span></dt>
+                <dd>
+                    <span>{{phuongXa.maXa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phuongXa.tenXa">Ten Xa</span></dt>
+                <dd>
+                    <span>{{phuongXa.tenXa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phuongXa.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{phuongXa.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phuongXa.quanHuyen">Quan Huyen</span></dt>
+                <dd>
+                    <div *ngIf="phuongXa.quanHuyen">
+                        <a [routerLink]="['/quan-huyen', phuongXa.quanHuyen?.id, 'view']">{{phuongXa.quanHuyen?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/phuong-xa', phuongXa.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

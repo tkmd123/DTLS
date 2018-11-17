@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="loaiThaoTac">
+            <h2><span jhiTranslate="dtlsApp.loaiThaoTac.detail.title">Loai Thao Tac</span> {{loaiThaoTac.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.loaiThaoTac.maLoaiThaoTac">Ma Loai Thao Tac</span></dt>
+                <dd>
+                    <span>{{loaiThaoTac.maLoaiThaoTac}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiThaoTac.tenLoaiThaoTac">Ten Loai Thao Tac</span></dt>
+                <dd>
+                    <span>{{loaiThaoTac.tenLoaiThaoTac}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiThaoTac.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{loaiThaoTac.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiThaoTac.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{loaiThaoTac.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiThaoTac.loaiThaoTac">Loai Thao Tac</span></dt>
+                <dd>
+                    <div *ngIf="loaiThaoTac.loaiThaoTac">
+                        <a [routerLink]="['/loai-thao-tac', loaiThaoTac.loaiThaoTac?.id, 'view']">{{loaiThaoTac.loaiThaoTac?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiThaoTac.phongBan">Phong Ban</span></dt>
+                <dd>
+                    <div *ngIf="loaiThaoTac.phongBan">
+                        <a [routerLink]="['/phong-ban', loaiThaoTac.phongBan?.id, 'view']">{{loaiThaoTac.phongBan?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/loai-thao-tac', loaiThaoTac.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
