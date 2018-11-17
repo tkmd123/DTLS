@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.donVi.home.title">Don Vis</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-don-vi" [routerLink]="['/don-vi/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.donVi.home.createLabel">
+            Create new Don Vi
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.donVi.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="donVis">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.maDonVi">Ma Don Vi</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.tenDonVi">Ten Don Vi</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.tenTat">Ten Tat</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.phanMuc">Phan Muc</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.phanCap">Phan Cap</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.phanKhoi">Phan Khoi</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.moTa">Mo Ta</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.ghiChu">Ghi Chu</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.donVi.donViQuanLy">Don Vi Quan Ly</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let donVi of donVis ;trackBy: trackId">
+                <td><a [routerLink]="['/don-vi', donVi.id, 'view' ]">{{donVi.id}}</a></td>
+                <td>{{donVi.maDonVi}}</td>
+                <td>{{donVi.tenDonVi}}</td>
+                <td>{{donVi.tenTat}}</td>
+                <td>{{donVi.phanMuc}}</td>
+                <td>{{donVi.phanCap}}</td>
+                <td>{{donVi.phanKhoi}}</td>
+                <td>{{donVi.moTa}}</td>
+                <td>{{donVi.ghiChu}}</td>
+                <td>{{donVi.isDeleted}}</td>
+                <td>
+                    <div *ngIf="donVi.donViQuanLy">
+                        <a [routerLink]="['../don-vi', donVi.donViQuanLy?.id, 'view' ]" >{{donVi.donViQuanLy?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/don-vi', donVi.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/don-vi', donVi.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'don-vi/'+ donVi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

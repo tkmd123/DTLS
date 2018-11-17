@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="loaiMauXetNghiem">
+            <h2><span jhiTranslate="dtlsApp.loaiMauXetNghiem.detail.title">Loai Mau Xet Nghiem</span> {{loaiMauXetNghiem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.loaiMauXetNghiem.maLoaiMau">Ma Loai Mau</span></dt>
+                <dd>
+                    <span>{{loaiMauXetNghiem.maLoaiMau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiMauXetNghiem.tenLoaiMau">Ten Loai Mau</span></dt>
+                <dd>
+                    <span>{{loaiMauXetNghiem.tenLoaiMau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiMauXetNghiem.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{loaiMauXetNghiem.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiMauXetNghiem.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{loaiMauXetNghiem.isDeleted}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/loai-mau-xet-nghiem', loaiMauXetNghiem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

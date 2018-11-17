@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-quan-huyen-heading" jhiTranslate="dtlsApp.quanHuyen.home.createOrEditLabel">Create or edit a Quan Huyen</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!quanHuyen.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="quanHuyen.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.quanHuyen.maHuyen" for="field_maHuyen">Ma Huyen</label>
+                    <input type="text" class="form-control" name="maHuyen" id="field_maHuyen"
+                        [(ngModel)]="quanHuyen.maHuyen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.quanHuyen.tenHuyen" for="field_tenHuyen">Ten Huyen</label>
+                    <input type="text" class="form-control" name="tenHuyen" id="field_tenHuyen"
+                        [(ngModel)]="quanHuyen.tenHuyen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.quanHuyen.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="quanHuyen.moTa" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.quanHuyen.tinhThanh" for="field_tinhThanh">Tinh Thanh</label>
+                    <select class="form-control" id="field_tinhThanh" name="tinhThanh" [(ngModel)]="quanHuyen.tinhThanh" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tinhThanhOption.id === quanHuyen.tinhThanh?.id ? quanHuyen.tinhThanh : tinhThanhOption" *ngFor="let tinhThanhOption of tinhthanhs; trackBy: trackTinhThanhById">{{tinhThanhOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

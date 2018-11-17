@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-nghia-trang-heading" jhiTranslate="dtlsApp.nghiaTrang.home.createOrEditLabel">Create or edit a Nghia Trang</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!nghiaTrang.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="nghiaTrang.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.maNghiaTrang" for="field_maNghiaTrang">Ma Nghia Trang</label>
+                    <input type="text" class="form-control" name="maNghiaTrang" id="field_maNghiaTrang"
+                        [(ngModel)]="nghiaTrang.maNghiaTrang" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.tenNghiaTrang" for="field_tenNghiaTrang">Ten Nghia Trang</label>
+                    <input type="text" class="form-control" name="tenNghiaTrang" id="field_tenNghiaTrang"
+                        [(ngModel)]="nghiaTrang.tenNghiaTrang" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.diaChi" for="field_diaChi">Dia Chi</label>
+                    <input type="text" class="form-control" name="diaChi" id="field_diaChi"
+                        [(ngModel)]="nghiaTrang.diaChi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.nguoiLienHe" for="field_nguoiLienHe">Nguoi Lien He</label>
+                    <input type="text" class="form-control" name="nguoiLienHe" id="field_nguoiLienHe"
+                        [(ngModel)]="nghiaTrang.nguoiLienHe" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.dienThoai" for="field_dienThoai">Dien Thoai</label>
+                    <input type="text" class="form-control" name="dienThoai" id="field_dienThoai"
+                        [(ngModel)]="nghiaTrang.dienThoai" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="nghiaTrang.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="nghiaTrang.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="nghiaTrang.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nghiaTrang.phuongXa" for="field_phuongXa">Phuong Xa</label>
+                    <select class="form-control" id="field_phuongXa" name="phuongXa" [(ngModel)]="nghiaTrang.phuongXa" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="phuongXaOption.id === nghiaTrang.phuongXa?.id ? nghiaTrang.phuongXa : phuongXaOption" *ngFor="let phuongXaOption of phuongxas; trackBy: trackPhuongXaById">{{phuongXaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
