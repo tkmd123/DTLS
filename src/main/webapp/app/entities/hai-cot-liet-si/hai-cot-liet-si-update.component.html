@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hai-cot-liet-si-heading" jhiTranslate="dtlsApp.haiCotLietSi.home.createOrEditLabel">Create or edit a Hai Cot Liet Si</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!haiCotLietSi.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="haiCotLietSi.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.maHaiCot" for="field_maHaiCot">Ma Hai Cot</label>
+                    <input type="text" class="form-control" name="maHaiCot" id="field_maHaiCot"
+                        [(ngModel)]="haiCotLietSi.maHaiCot" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="haiCotLietSi.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="haiCotLietSi.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="haiCotLietSi.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="haiCotLietSi.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="haiCotLietSi.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.lietSi" for="field_lietSi">Liet Si</label>
+                    <select class="form-control" id="field_lietSi" name="lietSi" [(ngModel)]="haiCotLietSi.lietSi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hoSoLietSiOption.id === haiCotLietSi.lietSi?.id ? haiCotLietSi.lietSi : hoSoLietSiOption" *ngFor="let hoSoLietSiOption of hosolietsis; trackBy: trackHoSoLietSiById">{{hoSoLietSiOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.haiCotLietSi.thongTinKhaiQuat" for="field_thongTinKhaiQuat">Thong Tin Khai Quat</label>
+                    <select class="form-control" id="field_thongTinKhaiQuat" name="thongTinKhaiQuat" [(ngModel)]="haiCotLietSi.thongTinKhaiQuat" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="thongTinKhaiQuatOption.id === haiCotLietSi.thongTinKhaiQuat?.id ? haiCotLietSi.thongTinKhaiQuat : thongTinKhaiQuatOption" *ngFor="let thongTinKhaiQuatOption of thongtinkhaiquats; trackBy: trackThongTinKhaiQuatById">{{thongTinKhaiQuatOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

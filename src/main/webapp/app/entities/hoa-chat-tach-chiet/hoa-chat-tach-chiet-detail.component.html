@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hoaChatTachChiet">
+            <h2><span jhiTranslate="dtlsApp.hoaChatTachChiet.detail.title">Hoa Chat Tach Chiet</span> {{hoaChatTachChiet.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.soLuong">So Luong</span></dt>
+                <dd>
+                    <span>{{hoaChatTachChiet.soLuong}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{hoaChatTachChiet.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{hoaChatTachChiet.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{hoaChatTachChiet.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{hoaChatTachChiet.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{hoaChatTachChiet.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.hoaChat">Hoa Chat</span></dt>
+                <dd>
+                    <div *ngIf="hoaChatTachChiet.hoaChat">
+                        <a [routerLink]="['/hoa-chat', hoaChatTachChiet.hoaChat?.id, 'view']">{{hoaChatTachChiet.hoaChat?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChatTachChiet.tachChiet">Tach Chiet</span></dt>
+                <dd>
+                    <div *ngIf="hoaChatTachChiet.tachChiet">
+                        <a [routerLink]="['/tach-chiet', hoaChatTachChiet.tachChiet?.id, 'view']">{{hoaChatTachChiet.tachChiet?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hoa-chat-tach-chiet', hoaChatTachChiet.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

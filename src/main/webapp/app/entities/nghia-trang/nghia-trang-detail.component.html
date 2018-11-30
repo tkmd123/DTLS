@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nghiaTrang">
+            <h2><span jhiTranslate="dtlsApp.nghiaTrang.detail.title">Nghia Trang</span> {{nghiaTrang.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.maNghiaTrang">Ma Nghia Trang</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.maNghiaTrang}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.tenNghiaTrang">Ten Nghia Trang</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.tenNghiaTrang}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.diaChi">Dia Chi</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.diaChi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.nguoiLienHe">Nguoi Lien He</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.nguoiLienHe}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.dienThoai">Dien Thoai</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.dienThoai}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.email">Email</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{nghiaTrang.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.nghiaTrang.phuongXa">Phuong Xa</span></dt>
+                <dd>
+                    <div *ngIf="nghiaTrang.phuongXa">
+                        <a [routerLink]="['/phuong-xa', nghiaTrang.phuongXa?.id, 'view']">{{nghiaTrang.phuongXa?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nghia-trang', nghiaTrang.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

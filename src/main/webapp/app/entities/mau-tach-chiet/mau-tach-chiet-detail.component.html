@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mauTachChiet">
+            <h2><span jhiTranslate="dtlsApp.mauTachChiet.detail.title">Mau Tach Chiet</span> {{mauTachChiet.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.dacDiemMau">Dac Diem Mau</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.dacDiemMau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.soLuongSuDung">So Luong Su Dung</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.soLuongSuDung}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.nhanXet">Nhan Xet</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.nhanXet}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.xuLyBeMat">Xu Ly Be Mat</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.xuLyBeMat}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongNghien">Khoi Luong Nghien</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.khoiLuongNghien}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongDeTach">Khoi Luong De Tach</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.khoiLuongDeTach}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongSauKhu">Khoi Luong Sau Khu</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.khoiLuongSauKhu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongSauLoc">Khoi Luong Sau Loc</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.khoiLuongSauLoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongADN">Khoi Luong ADN</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.khoiLuongADN}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongChuaNghien">Khoi Luong Chua Nghien</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.khoiLuongChuaNghien}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.ghiChuTach">Ghi Chu Tach</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.ghiChuTach}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.ghiChuADN">Ghi Chu ADN</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.ghiChuADN}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.float1">Float 1</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.float1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.float2">Float 2</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.float2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.float3">Float 3</span></dt>
+                <dd>
+                    <span>{{mauTachChiet.float3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.mauTachChiet">Mau Tach Chiet</span></dt>
+                <dd>
+                    <div *ngIf="mauTachChiet.mauTachChiet">
+                        <a [routerLink]="['/mau-xet-nghiem', mauTachChiet.mauTachChiet?.id, 'view']">{{mauTachChiet.mauTachChiet?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mauTachChiet.tachChietMau">Tach Chiet Mau</span></dt>
+                <dd>
+                    <div *ngIf="mauTachChiet.tachChietMau">
+                        <a [routerLink]="['/tach-chiet', mauTachChiet.tachChietMau?.id, 'view']">{{mauTachChiet.tachChietMau?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mau-tach-chiet', mauTachChiet.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

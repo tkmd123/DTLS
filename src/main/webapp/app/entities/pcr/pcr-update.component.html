@@ -1,0 +1,129 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-pcr-heading" jhiTranslate="dtlsApp.pCR.home.createOrEditLabel">Create or edit a PCR</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!pCR.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="pCR.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.maPCR" for="field_maPCR">Ma PCR</label>
+                    <input type="text" class="form-control" name="maPCR" id="field_maPCR"
+                        [(ngModel)]="pCR.maPCR" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.thoiGianThucHien" for="field_thoiGianThucHien">Thoi Gian Thuc Hien</label>
+                    <div class="d-flex">
+                        <input id="field_thoiGianThucHien" type="datetime-local" class="form-control" name="thoiGianThucHien" [(ngModel)]="thoiGianThucHien"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.nhanXet" for="field_nhanXet">Nhan Xet</label>
+                    <input type="text" class="form-control" name="nhanXet" id="field_nhanXet"
+                        [(ngModel)]="pCR.nhanXet" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.thoiGianBatDau" for="field_thoiGianBatDau">Thoi Gian Bat Dau</label>
+                    <div class="d-flex">
+                        <input id="field_thoiGianBatDau" type="datetime-local" class="form-control" name="thoiGianBatDau" [(ngModel)]="thoiGianBatDau"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.congSuatBatDau" for="field_congSuatBatDau">Cong Suat Bat Dau</label>
+                    <input type="number" class="form-control" name="congSuatBatDau" id="field_congSuatBatDau"
+                        [(ngModel)]="pCR.congSuatBatDau" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.cuongDoBatDau" for="field_cuongDoBatDau">Cuong Do Bat Dau</label>
+                    <input type="number" class="form-control" name="cuongDoBatDau" id="field_cuongDoBatDau"
+                        [(ngModel)]="pCR.cuongDoBatDau" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.dienTheBatDau" for="field_dienTheBatDau">Dien The Bat Dau</label>
+                    <input type="number" class="form-control" name="dienTheBatDau" id="field_dienTheBatDau"
+                        [(ngModel)]="pCR.dienTheBatDau" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.thoiGianKetThuc" for="field_thoiGianKetThuc">Thoi Gian Ket Thuc</label>
+                    <div class="d-flex">
+                        <input id="field_thoiGianKetThuc" type="datetime-local" class="form-control" name="thoiGianKetThuc" [(ngModel)]="thoiGianKetThuc"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.congSuatKetThuc" for="field_congSuatKetThuc">Cong Suat Ket Thuc</label>
+                    <input type="number" class="form-control" name="congSuatKetThuc" id="field_congSuatKetThuc"
+                        [(ngModel)]="pCR.congSuatKetThuc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.cuongDoKetThuc" for="field_cuongDoKetThuc">Cuong Do Ket Thuc</label>
+                    <input type="number" class="form-control" name="cuongDoKetThuc" id="field_cuongDoKetThuc"
+                        [(ngModel)]="pCR.cuongDoKetThuc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.dienTheKetThuc" for="field_dienTheKetThuc">Dien The Ket Thuc</label>
+                    <input type="number" class="form-control" name="dienTheKetThuc" id="field_dienTheKetThuc"
+                        [(ngModel)]="pCR.dienTheKetThuc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="pCR.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="pCR.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="pCR.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="pCR.udf3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.udf4" for="field_udf4">Udf 4</label>
+                    <input type="text" class="form-control" name="udf4" id="field_udf4"
+                        [(ngModel)]="pCR.udf4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.udf5" for="field_udf5">Udf 5</label>
+                    <input type="text" class="form-control" name="udf5" id="field_udf5"
+                        [(ngModel)]="pCR.udf5" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.mayPCR" for="field_mayPCR">May PCR</label>
+                    <select class="form-control" id="field_mayPCR" name="mayPCR" [(ngModel)]="pCR.mayPCR" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mayPCROption.id === pCR.mayPCR?.id ? pCR.mayPCR : mayPCROption" *ngFor="let mayPCROption of maypcrs; trackBy: trackMayPCRById">{{mayPCROption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCR.nhanVienPCR" for="field_nhanVienPCR">Nhan Vien PCR</label>
+                    <select class="form-control" id="field_nhanVienPCR" name="nhanVienPCR" [(ngModel)]="pCR.nhanVienPCR" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nhanVienOption.id === pCR.nhanVienPCR?.id ? pCR.nhanVienPCR : nhanVienOption" *ngFor="let nhanVienOption of nhanviens; trackBy: trackNhanVienById">{{nhanVienOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

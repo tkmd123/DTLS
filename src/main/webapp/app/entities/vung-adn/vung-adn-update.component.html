@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-vung-adn-heading" jhiTranslate="dtlsApp.vungADN.home.createOrEditLabel">Create or edit a Vung ADN</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!vungADN.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="vungADN.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.vungADN.maVungADN" for="field_maVungADN">Ma Vung ADN</label>
+                    <input type="text" class="form-control" name="maVungADN" id="field_maVungADN"
+                        [(ngModel)]="vungADN.maVungADN" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.vungADN.tenVungADN" for="field_tenVungADN">Ten Vung ADN</label>
+                    <input type="text" class="form-control" name="tenVungADN" id="field_tenVungADN"
+                        [(ngModel)]="vungADN.tenVungADN" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.vungADN.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="vungADN.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.vungADN.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="vungADN.isDeleted" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

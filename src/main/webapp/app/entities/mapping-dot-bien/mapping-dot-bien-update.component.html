@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-mapping-dot-bien-heading" jhiTranslate="dtlsApp.mappingDotBien.home.createOrEditLabel">Create or edit a Mapping Dot Bien</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mappingDotBien.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="mappingDotBien.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mappingDotBien.maDotBien" for="field_maDotBien">Ma Dot Bien</label>
+                    <input type="text" class="form-control" name="maDotBien" id="field_maDotBien"
+                        [(ngModel)]="mappingDotBien.maDotBien" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mappingDotBien.maMapping" for="field_maMapping">Ma Mapping</label>
+                    <input type="text" class="form-control" name="maMapping" id="field_maMapping"
+                        [(ngModel)]="mappingDotBien.maMapping" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mappingDotBien.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="mappingDotBien.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mappingDotBien.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="mappingDotBien.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mappingDotBien.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="mappingDotBien.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mappingDotBien.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="mappingDotBien.udf3" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

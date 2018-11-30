@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tinhSachPhanUng">
+            <h2><span jhiTranslate="dtlsApp.tinhSachPhanUng.detail.title">Tinh Sach Phan Ung</span> {{tinhSachPhanUng.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.dungTichSuDung">Dung Tich Su Dung</span></dt>
+                <dd>
+                    <span>{{tinhSachPhanUng.dungTichSuDung}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.chuTrinhNhietDo">Chu Trinh Nhiet Do</span></dt>
+                <dd>
+                    <span>{{tinhSachPhanUng.chuTrinhNhietDo}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{tinhSachPhanUng.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{tinhSachPhanUng.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{tinhSachPhanUng.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{tinhSachPhanUng.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.tinhSach">Tinh Sach</span></dt>
+                <dd>
+                    <div *ngIf="tinhSachPhanUng.tinhSach">
+                        <a [routerLink]="['/tinh-sach', tinhSachPhanUng.tinhSach?.id, 'view']">{{tinhSachPhanUng.tinhSach?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tinhSachPhanUng.hoaChatTinhSach">Hoa Chat Tinh Sach</span></dt>
+                <dd>
+                    <div *ngIf="tinhSachPhanUng.hoaChatTinhSach">
+                        <a [routerLink]="['/hoa-chat', tinhSachPhanUng.hoaChatTinhSach?.id, 'view']">{{tinhSachPhanUng.hoaChatTinhSach?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tinh-sach-phan-ung', tinhSachPhanUng.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,201 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.hoSoLietSi.home.title">Ho So Liet Sis</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ho-so-liet-si" [routerLink]="['/ho-so-liet-si/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.hoSoLietSi.home.createLabel">
+            Create new Ho So Liet Si
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.hoSoLietSi.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="hoSoLietSis">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maCCS"><span jhiTranslate="dtlsApp.hoSoLietSi.maCCS">Ma CCS</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maLietSi"><span jhiTranslate="dtlsApp.hoSoLietSi.maLietSi">Ma Liet Si</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hoTen"><span jhiTranslate="dtlsApp.hoSoLietSi.hoTen">Ho Ten</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenKhac"><span jhiTranslate="dtlsApp.hoSoLietSi.tenKhac">Ten Khac</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="biDanh"><span jhiTranslate="dtlsApp.hoSoLietSi.biDanh">Bi Danh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gioiTinh"><span jhiTranslate="dtlsApp.hoSoLietSi.gioiTinh">Gioi Tinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namSinh"><span jhiTranslate="dtlsApp.hoSoLietSi.namSinh">Nam Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="queThon"><span jhiTranslate="dtlsApp.hoSoLietSi.queThon">Que Thon</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="queXa"><span jhiTranslate="dtlsApp.hoSoLietSi.queXa">Que Xa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="queHuyen"><span jhiTranslate="dtlsApp.hoSoLietSi.queHuyen">Que Huyen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="queTinh"><span jhiTranslate="dtlsApp.hoSoLietSi.queTinh">Que Tinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="donVi"><span jhiTranslate="dtlsApp.hoSoLietSi.donVi">Don Vi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namNhapNgu"><span jhiTranslate="dtlsApp.hoSoLietSi.namNhapNgu">Nam Nhap Ngu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namXuatNgu"><span jhiTranslate="dtlsApp.hoSoLietSi.namXuatNgu">Nam Xuat Ngu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namTaiNgu"><span jhiTranslate="dtlsApp.hoSoLietSi.namTaiNgu">Nam Tai Ngu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namDiB"><span jhiTranslate="dtlsApp.hoSoLietSi.namDiB">Nam Di B</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhNgay"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhNgay">Hy Sinh Ngay</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhThang"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhThang">Hy Sinh Thang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhNam"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhNam">Hy Sinh Nam</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhLyDo"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhLyDo">Hy Sinh Ly Do</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhDonVi"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhDonVi">Hy Sinh Don Vi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhTranDanh"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhTranDanh">Hy Sinh Tran Danh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhDiaDiem"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhDiaDiem">Hy Sinh Dia Diem</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhXa"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhXa">Hy Sinh Xa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhHuyen"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhHuyen">Hy Sinh Huyen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hySinhTinh"><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhTinh">Hy Sinh Tinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anTangDiaDiem"><span jhiTranslate="dtlsApp.hoSoLietSi.anTangDiaDiem">An Tang Dia Diem</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anTangXa"><span jhiTranslate="dtlsApp.hoSoLietSi.anTangXa">An Tang Xa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anTangHuyen"><span jhiTranslate="dtlsApp.hoSoLietSi.anTangHuyen">An Tang Huyen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anTangTinh"><span jhiTranslate="dtlsApp.hoSoLietSi.anTangTinh">An Tang Tinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ngayBaoTu"><span jhiTranslate="dtlsApp.hoSoLietSi.ngayBaoTu">Ngay Bao Tu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="giayBaoTu"><span jhiTranslate="dtlsApp.hoSoLietSi.giayBaoTu">Giay Bao Tu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vatDungKemTheo"><span jhiTranslate="dtlsApp.hoSoLietSi.vatDungKemTheo">Vat Dung Kem Theo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ghiChu"><span jhiTranslate="dtlsApp.hoSoLietSi.ghiChu">Ghi Chu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="trangThaiXacMinh"><span jhiTranslate="dtlsApp.hoSoLietSi.trangThaiXacMinh">Trang Thai Xac Minh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="chieuCao"><span jhiTranslate="dtlsApp.hoSoLietSi.chieuCao">Chieu Cao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="canNang"><span jhiTranslate="dtlsApp.hoSoLietSi.canNang">Can Nang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nhomMau"><span jhiTranslate="dtlsApp.hoSoLietSi.nhomMau">Nhom Mau</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dacDiemRang"><span jhiTranslate="dtlsApp.hoSoLietSi.dacDiemRang">Dac Diem Rang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tinhHuongHySinh"><span jhiTranslate="dtlsApp.hoSoLietSi.tinhHuongHySinh">Tinh Huong Hy Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tinhHuongTimThay"><span jhiTranslate="dtlsApp.hoSoLietSi.tinhHuongTimThay">Tinh Huong Tim Thay</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dacDiemNhanDang"><span jhiTranslate="dtlsApp.hoSoLietSi.dacDiemNhanDang">Dac Diem Nhan Dang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDeleted"><span jhiTranslate="dtlsApp.hoSoLietSi.isDeleted">Is Deleted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf1"><span jhiTranslate="dtlsApp.hoSoLietSi.udf1">Udf 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf2"><span jhiTranslate="dtlsApp.hoSoLietSi.udf2">Udf 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf3"><span jhiTranslate="dtlsApp.hoSoLietSi.udf3">Udf 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf4"><span jhiTranslate="dtlsApp.hoSoLietSi.udf4">Udf 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf5"><span jhiTranslate="dtlsApp.hoSoLietSi.udf5">Udf 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phuongXa.id"><span jhiTranslate="dtlsApp.hoSoLietSi.phuongXa">Phuong Xa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="donViHiSinh.id"><span jhiTranslate="dtlsApp.hoSoLietSi.donViHiSinh">Don Vi Hi Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="donViHuanLuyen.id"><span jhiTranslate="dtlsApp.hoSoLietSi.donViHuanLuyen">Don Vi Huan Luyen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="capBac.id"><span jhiTranslate="dtlsApp.hoSoLietSi.capBac">Cap Bac</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="chucVu.id"><span jhiTranslate="dtlsApp.hoSoLietSi.chucVu">Chuc Vu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hoSoLietSi of hoSoLietSis ;trackBy: trackId">
+                <td><a [routerLink]="['/ho-so-liet-si', hoSoLietSi.id, 'view' ]">{{hoSoLietSi.id}}</a></td>
+                <td>{{hoSoLietSi.maCCS}}</td>
+                <td>{{hoSoLietSi.maLietSi}}</td>
+                <td>{{hoSoLietSi.hoTen}}</td>
+                <td>{{hoSoLietSi.tenKhac}}</td>
+                <td>{{hoSoLietSi.biDanh}}</td>
+                <td>{{hoSoLietSi.gioiTinh}}</td>
+                <td>{{hoSoLietSi.namSinh}}</td>
+                <td>{{hoSoLietSi.queThon}}</td>
+                <td>{{hoSoLietSi.queXa}}</td>
+                <td>{{hoSoLietSi.queHuyen}}</td>
+                <td>{{hoSoLietSi.queTinh}}</td>
+                <td>{{hoSoLietSi.donVi}}</td>
+                <td>{{hoSoLietSi.namNhapNgu}}</td>
+                <td>{{hoSoLietSi.namXuatNgu}}</td>
+                <td>{{hoSoLietSi.namTaiNgu}}</td>
+                <td>{{hoSoLietSi.namDiB}}</td>
+                <td>{{hoSoLietSi.hySinhNgay}}</td>
+                <td>{{hoSoLietSi.hySinhThang}}</td>
+                <td>{{hoSoLietSi.hySinhNam}}</td>
+                <td>{{hoSoLietSi.hySinhLyDo}}</td>
+                <td>{{hoSoLietSi.hySinhDonVi}}</td>
+                <td>{{hoSoLietSi.hySinhTranDanh}}</td>
+                <td>{{hoSoLietSi.hySinhDiaDiem}}</td>
+                <td>{{hoSoLietSi.hySinhXa}}</td>
+                <td>{{hoSoLietSi.hySinhHuyen}}</td>
+                <td>{{hoSoLietSi.hySinhTinh}}</td>
+                <td>{{hoSoLietSi.anTangDiaDiem}}</td>
+                <td>{{hoSoLietSi.anTangXa}}</td>
+                <td>{{hoSoLietSi.anTangHuyen}}</td>
+                <td>{{hoSoLietSi.anTangTinh}}</td>
+                <td>{{hoSoLietSi.ngayBaoTu}}</td>
+                <td>{{hoSoLietSi.giayBaoTu}}</td>
+                <td>{{hoSoLietSi.vatDungKemTheo}}</td>
+                <td>{{hoSoLietSi.ghiChu}}</td>
+                <td>{{hoSoLietSi.trangThaiXacMinh}}</td>
+                <td>{{hoSoLietSi.chieuCao}}</td>
+                <td>{{hoSoLietSi.canNang}}</td>
+                <td>{{hoSoLietSi.nhomMau}}</td>
+                <td>{{hoSoLietSi.dacDiemRang}}</td>
+                <td>{{hoSoLietSi.tinhHuongHySinh}}</td>
+                <td>{{hoSoLietSi.tinhHuongTimThay}}</td>
+                <td>{{hoSoLietSi.dacDiemNhanDang}}</td>
+                <td>{{hoSoLietSi.isDeleted}}</td>
+                <td>{{hoSoLietSi.udf1}}</td>
+                <td>{{hoSoLietSi.udf2}}</td>
+                <td>{{hoSoLietSi.udf3}}</td>
+                <td>{{hoSoLietSi.udf4}}</td>
+                <td>{{hoSoLietSi.udf5}}</td>
+                <td>
+                    <div *ngIf="hoSoLietSi.phuongXa">
+                        <a [routerLink]="['../phuong-xa', hoSoLietSi.phuongXa?.id, 'view' ]" >{{hoSoLietSi.phuongXa?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="hoSoLietSi.donViHiSinh">
+                        <a [routerLink]="['../don-vi', hoSoLietSi.donViHiSinh?.id, 'view' ]" >{{hoSoLietSi.donViHiSinh?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="hoSoLietSi.donViHuanLuyen">
+                        <a [routerLink]="['../don-vi', hoSoLietSi.donViHuanLuyen?.id, 'view' ]" >{{hoSoLietSi.donViHuanLuyen?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="hoSoLietSi.capBac">
+                        <a [routerLink]="['../cap-bac', hoSoLietSi.capBac?.id, 'view' ]" >{{hoSoLietSi.capBac?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="hoSoLietSi.chucVu">
+                        <a [routerLink]="['../chuc-vu', hoSoLietSi.chucVu?.id, 'view' ]" >{{hoSoLietSi.chucVu?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/ho-so-liet-si', hoSoLietSi.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ho-so-liet-si', hoSoLietSi.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ho-so-liet-si/'+ hoSoLietSi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="hoSoLietSis && hoSoLietSis.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

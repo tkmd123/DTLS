@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-pcr-mau-heading" jhiTranslate="dtlsApp.pCRMau.home.createOrEditLabel">Create or edit a PCR Mau</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!pCRMau.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="pCRMau.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.nongDoAgaros" for="field_nongDoAgaros">Nong Do Agaros</label>
+                    <input type="number" class="form-control" name="nongDoAgaros" id="field_nongDoAgaros"
+                        [(ngModel)]="pCRMau.nongDoAgaros" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="pCRMau.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="pCRMau.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="pCRMau.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="pCRMau.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.pcrKetQua" for="field_pcrKetQua">Pcr Ket Qua</label>
+                    <select class="form-control" id="field_pcrKetQua" name="pcrKetQua" [(ngModel)]="pCRMau.pcrKetQua" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pCRKetQuaOption.id === pCRMau.pcrKetQua?.id ? pCRMau.pcrKetQua : pCRKetQuaOption" *ngFor="let pCRKetQuaOption of pcrketquas; trackBy: trackPCRKetQuaById">{{pCRKetQuaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.pcrMau" for="field_pcrMau">Pcr Mau</label>
+                    <select class="form-control" id="field_pcrMau" name="pcrMau" [(ngModel)]="pCRMau.pcrMau" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pCROption.id === pCRMau.pcrMau?.id ? pCRMau.pcrMau : pCROption" *ngFor="let pCROption of pcrs; trackBy: trackPCRById">{{pCROption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.mauPCR" for="field_mauPCR">Mau PCR</label>
+                    <select class="form-control" id="field_mauPCR" name="mauPCR" [(ngModel)]="pCRMau.mauPCR" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mauXetNghiemOption.id === pCRMau.mauPCR?.id ? pCRMau.mauPCR : mauXetNghiemOption" *ngFor="let mauXetNghiemOption of mauxetnghiems; trackBy: trackMauXetNghiemById">{{mauXetNghiemOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRMau.moiPCR" for="field_moiPCR">Moi PCR</label>
+                    <select class="form-control" id="field_moiPCR" name="moiPCR" [(ngModel)]="pCRMau.moiPCR" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pCRMoiOption.id === pCRMau.moiPCR?.id ? pCRMau.moiPCR : pCRMoiOption" *ngFor="let pCRMoiOption of pcrmois; trackBy: trackPCRMoiById">{{pCRMoiOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

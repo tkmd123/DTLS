@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pCR">
+            <h2><span jhiTranslate="dtlsApp.pCR.detail.title">PCR</span> {{pCR.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.pCR.maPCR">Ma PCR</span></dt>
+                <dd>
+                    <span>{{pCR.maPCR}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.thoiGianThucHien">Thoi Gian Thuc Hien</span></dt>
+                <dd>
+                    <span>{{pCR.thoiGianThucHien}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.nhanXet">Nhan Xet</span></dt>
+                <dd>
+                    <span>{{pCR.nhanXet}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.thoiGianBatDau">Thoi Gian Bat Dau</span></dt>
+                <dd>
+                    <span>{{pCR.thoiGianBatDau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.congSuatBatDau">Cong Suat Bat Dau</span></dt>
+                <dd>
+                    <span>{{pCR.congSuatBatDau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.cuongDoBatDau">Cuong Do Bat Dau</span></dt>
+                <dd>
+                    <span>{{pCR.cuongDoBatDau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.dienTheBatDau">Dien The Bat Dau</span></dt>
+                <dd>
+                    <span>{{pCR.dienTheBatDau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.thoiGianKetThuc">Thoi Gian Ket Thuc</span></dt>
+                <dd>
+                    <span>{{pCR.thoiGianKetThuc}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.congSuatKetThuc">Cong Suat Ket Thuc</span></dt>
+                <dd>
+                    <span>{{pCR.congSuatKetThuc}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.cuongDoKetThuc">Cuong Do Ket Thuc</span></dt>
+                <dd>
+                    <span>{{pCR.cuongDoKetThuc}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.dienTheKetThuc">Dien The Ket Thuc</span></dt>
+                <dd>
+                    <span>{{pCR.dienTheKetThuc}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{pCR.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{pCR.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{pCR.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{pCR.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.udf4">Udf 4</span></dt>
+                <dd>
+                    <span>{{pCR.udf4}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.udf5">Udf 5</span></dt>
+                <dd>
+                    <span>{{pCR.udf5}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.mayPCR">May PCR</span></dt>
+                <dd>
+                    <div *ngIf="pCR.mayPCR">
+                        <a [routerLink]="['/may-pcr', pCR.mayPCR?.id, 'view']">{{pCR.mayPCR?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCR.nhanVienPCR">Nhan Vien PCR</span></dt>
+                <dd>
+                    <div *ngIf="pCR.nhanVienPCR">
+                        <a [routerLink]="['/nhan-vien', pCR.nhanVienPCR?.id, 'view']">{{pCR.nhanVienPCR?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pcr', pCR.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

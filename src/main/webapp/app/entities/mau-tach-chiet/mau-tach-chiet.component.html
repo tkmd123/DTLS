@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.mauTachChiet.home.title">Mau Tach Chiets</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mau-tach-chiet" [routerLink]="['/mau-tach-chiet/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.mauTachChiet.home.createLabel">
+            Create new Mau Tach Chiet
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.mauTachChiet.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mauTachChiets">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.dacDiemMau">Dac Diem Mau</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.soLuongSuDung">So Luong Su Dung</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.nhanXet">Nhan Xet</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.xuLyBeMat">Xu Ly Be Mat</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongNghien">Khoi Luong Nghien</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongDeTach">Khoi Luong De Tach</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongSauKhu">Khoi Luong Sau Khu</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongSauLoc">Khoi Luong Sau Loc</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongADN">Khoi Luong ADN</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.khoiLuongChuaNghien">Khoi Luong Chua Nghien</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.ghiChuTach">Ghi Chu Tach</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.ghiChuADN">Ghi Chu ADN</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.udf1">Udf 1</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.udf2">Udf 2</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.udf3">Udf 3</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.float1">Float 1</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.float2">Float 2</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.float3">Float 3</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.mauTachChiet">Mau Tach Chiet</span></th>
+            <th><span jhiTranslate="dtlsApp.mauTachChiet.tachChietMau">Tach Chiet Mau</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mauTachChiet of mauTachChiets ;trackBy: trackId">
+                <td><a [routerLink]="['/mau-tach-chiet', mauTachChiet.id, 'view' ]">{{mauTachChiet.id}}</a></td>
+                <td>{{mauTachChiet.dacDiemMau}}</td>
+                <td>{{mauTachChiet.soLuongSuDung}}</td>
+                <td>{{mauTachChiet.nhanXet}}</td>
+                <td>{{mauTachChiet.xuLyBeMat}}</td>
+                <td>{{mauTachChiet.khoiLuongNghien}}</td>
+                <td>{{mauTachChiet.khoiLuongDeTach}}</td>
+                <td>{{mauTachChiet.khoiLuongSauKhu}}</td>
+                <td>{{mauTachChiet.khoiLuongSauLoc}}</td>
+                <td>{{mauTachChiet.khoiLuongADN}}</td>
+                <td>{{mauTachChiet.khoiLuongChuaNghien}}</td>
+                <td>{{mauTachChiet.ghiChuTach}}</td>
+                <td>{{mauTachChiet.ghiChuADN}}</td>
+                <td>{{mauTachChiet.isDeleted}}</td>
+                <td>{{mauTachChiet.udf1}}</td>
+                <td>{{mauTachChiet.udf2}}</td>
+                <td>{{mauTachChiet.udf3}}</td>
+                <td>{{mauTachChiet.float1}}</td>
+                <td>{{mauTachChiet.float2}}</td>
+                <td>{{mauTachChiet.float3}}</td>
+                <td>
+                    <div *ngIf="mauTachChiet.mauTachChiet">
+                        <a [routerLink]="['../mau-xet-nghiem', mauTachChiet.mauTachChiet?.id, 'view' ]" >{{mauTachChiet.mauTachChiet?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="mauTachChiet.tachChietMau">
+                        <a [routerLink]="['../tach-chiet', mauTachChiet.tachChietMau?.id, 'view' ]" >{{mauTachChiet.tachChietMau?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/mau-tach-chiet', mauTachChiet.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/mau-tach-chiet', mauTachChiet.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mau-tach-chiet/'+ mauTachChiet.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

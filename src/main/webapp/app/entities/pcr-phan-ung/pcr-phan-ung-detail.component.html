@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pCRPhanUng">
+            <h2><span jhiTranslate="dtlsApp.pCRPhanUng.detail.title">PCR Phan Ung</span> {{pCRPhanUng.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.chuKyPhanUng">Chu Ky Phan Ung</span></dt>
+                <dd>
+                    <span>{{pCRPhanUng.chuKyPhanUng}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.dungTich">Dung Tich</span></dt>
+                <dd>
+                    <span>{{pCRPhanUng.dungTich}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{pCRPhanUng.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{pCRPhanUng.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{pCRPhanUng.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{pCRPhanUng.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.pcrPhanUng">Pcr Phan Ung</span></dt>
+                <dd>
+                    <div *ngIf="pCRPhanUng.pcrPhanUng">
+                        <a [routerLink]="['/pcr', pCRPhanUng.pcrPhanUng?.id, 'view']">{{pCRPhanUng.pcrPhanUng?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRPhanUng.hoaChatPhanUng">Hoa Chat Phan Ung</span></dt>
+                <dd>
+                    <div *ngIf="pCRPhanUng.hoaChatPhanUng">
+                        <a [routerLink]="['/hoa-chat', pCRPhanUng.hoaChatPhanUng?.id, 'view']">{{pCRPhanUng.hoaChatPhanUng?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pcr-phan-ung', pCRPhanUng.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

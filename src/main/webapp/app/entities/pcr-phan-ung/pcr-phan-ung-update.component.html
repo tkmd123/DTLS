@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-pcr-phan-ung-heading" jhiTranslate="dtlsApp.pCRPhanUng.home.createOrEditLabel">Create or edit a PCR Phan Ung</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!pCRPhanUng.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="pCRPhanUng.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.chuKyPhanUng" for="field_chuKyPhanUng">Chu Ky Phan Ung</label>
+                    <input type="text" class="form-control" name="chuKyPhanUng" id="field_chuKyPhanUng"
+                        [(ngModel)]="pCRPhanUng.chuKyPhanUng" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.dungTich" for="field_dungTich">Dung Tich</label>
+                    <input type="number" class="form-control" name="dungTich" id="field_dungTich"
+                        [(ngModel)]="pCRPhanUng.dungTich" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="pCRPhanUng.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="pCRPhanUng.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="pCRPhanUng.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="pCRPhanUng.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.pcrPhanUng" for="field_pcrPhanUng">Pcr Phan Ung</label>
+                    <select class="form-control" id="field_pcrPhanUng" name="pcrPhanUng" [(ngModel)]="pCRPhanUng.pcrPhanUng" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pCROption.id === pCRPhanUng.pcrPhanUng?.id ? pCRPhanUng.pcrPhanUng : pCROption" *ngFor="let pCROption of pcrs; trackBy: trackPCRById">{{pCROption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.pCRPhanUng.hoaChatPhanUng" for="field_hoaChatPhanUng">Hoa Chat Phan Ung</label>
+                    <select class="form-control" id="field_hoaChatPhanUng" name="hoaChatPhanUng" [(ngModel)]="pCRPhanUng.hoaChatPhanUng" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hoaChatOption.id === pCRPhanUng.hoaChatPhanUng?.id ? pCRPhanUng.hoaChatPhanUng : hoaChatOption" *ngFor="let hoaChatOption of hoachats; trackBy: trackHoaChatById">{{hoaChatOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

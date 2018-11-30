@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-loai-thao-tac-heading" jhiTranslate="dtlsApp.loaiThaoTac.home.createOrEditLabel">Create or edit a Loai Thao Tac</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!loaiThaoTac.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="loaiThaoTac.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiThaoTac.maLoaiThaoTac" for="field_maLoaiThaoTac">Ma Loai Thao Tac</label>
+                    <input type="text" class="form-control" name="maLoaiThaoTac" id="field_maLoaiThaoTac"
+                        [(ngModel)]="loaiThaoTac.maLoaiThaoTac" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiThaoTac.tenLoaiThaoTac" for="field_tenLoaiThaoTac">Ten Loai Thao Tac</label>
+                    <input type="text" class="form-control" name="tenLoaiThaoTac" id="field_tenLoaiThaoTac"
+                        [(ngModel)]="loaiThaoTac.tenLoaiThaoTac" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiThaoTac.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="loaiThaoTac.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiThaoTac.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="loaiThaoTac.isDeleted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiThaoTac.thaoTacTiepTheo" for="field_thaoTacTiepTheo">Thao Tac Tiep Theo</label>
+                    <select class="form-control" id="field_thaoTacTiepTheo" name="thaoTacTiepTheo" [(ngModel)]="loaiThaoTac.thaoTacTiepTheo" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="loaiThaoTacOption.id === loaiThaoTac.thaoTacTiepTheo?.id ? loaiThaoTac.thaoTacTiepTheo : loaiThaoTacOption" *ngFor="let loaiThaoTacOption of loaithaotacs; trackBy: trackLoaiThaoTacById">{{loaiThaoTacOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiThaoTac.phongBan" for="field_phongBan">Phong Ban</label>
+                    <select class="form-control" id="field_phongBan" name="phongBan" [(ngModel)]="loaiThaoTac.phongBan" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="phongBanOption.id === loaiThaoTac.phongBan?.id ? loaiThaoTac.phongBan : phongBanOption" *ngFor="let phongBanOption of phongbans; trackBy: trackPhongBanById">{{phongBanOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

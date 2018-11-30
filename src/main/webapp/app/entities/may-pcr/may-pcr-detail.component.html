@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mayPCR">
+            <h2><span jhiTranslate="dtlsApp.mayPCR.detail.title">May PCR</span> {{mayPCR.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.mayPCR.maMayPCR">Ma May PCR</span></dt>
+                <dd>
+                    <span>{{mayPCR.maMayPCR}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mayPCR.tenMayPCR">Ten May PCR</span></dt>
+                <dd>
+                    <span>{{mayPCR.tenMayPCR}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mayPCR.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{mayPCR.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mayPCR.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{mayPCR.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mayPCR.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{mayPCR.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mayPCR.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{mayPCR.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mayPCR.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{mayPCR.udf3}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/may-pcr', mayPCR.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-loai-mau-xet-nghiem-heading" jhiTranslate="dtlsApp.loaiMauXetNghiem.home.createOrEditLabel">Create or edit a Loai Mau Xet Nghiem</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!loaiMauXetNghiem.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="loaiMauXetNghiem.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.maLoaiMau" for="field_maLoaiMau">Ma Loai Mau</label>
+                    <input type="text" class="form-control" name="maLoaiMau" id="field_maLoaiMau"
+                        [(ngModel)]="loaiMauXetNghiem.maLoaiMau" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.tenLoaiMau" for="field_tenLoaiMau">Ten Loai Mau</label>
+                    <input type="text" class="form-control" name="tenLoaiMau" id="field_tenLoaiMau"
+                        [(ngModel)]="loaiMauXetNghiem.tenLoaiMau" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.phanLoai" for="field_phanLoai">Phan Loai</label>
+                    <input type="text" class="form-control" name="phanLoai" id="field_phanLoai"
+                        [(ngModel)]="loaiMauXetNghiem.phanLoai" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="loaiMauXetNghiem.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="loaiMauXetNghiem.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="loaiMauXetNghiem.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="loaiMauXetNghiem.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.loaiMauXetNghiem.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="loaiMauXetNghiem.udf3" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

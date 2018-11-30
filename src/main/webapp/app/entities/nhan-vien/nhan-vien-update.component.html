@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-nhan-vien-heading" jhiTranslate="dtlsApp.nhanVien.home.createOrEditLabel">Create or edit a Nhan Vien</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!nhanVien.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="nhanVien.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.maNhanVien" for="field_maNhanVien">Ma Nhan Vien</label>
+                    <input type="text" class="form-control" name="maNhanVien" id="field_maNhanVien"
+                        [(ngModel)]="nhanVien.maNhanVien" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.tenNhanVien" for="field_tenNhanVien">Ten Nhan Vien</label>
+                    <input type="text" class="form-control" name="tenNhanVien" id="field_tenNhanVien"
+                        [(ngModel)]="nhanVien.tenNhanVien" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.soDienThoai" for="field_soDienThoai">So Dien Thoai</label>
+                    <input type="text" class="form-control" name="soDienThoai" id="field_soDienThoai"
+                        [(ngModel)]="nhanVien.soDienThoai" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="nhanVien.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="nhanVien.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.ghiChu" for="field_ghiChu">Ghi Chu</label>
+                    <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
+                        [(ngModel)]="nhanVien.ghiChu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="nhanVien.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="nhanVien.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="nhanVien.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="nhanVien.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.userNhanVien" for="field_userNhanVien">User Nhan Vien</label>
+                    <select class="form-control" id="field_userNhanVien" name="userNhanVien" [(ngModel)]="nhanVien.userNhanVien" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === nhanVien.userNhanVien?.id ? nhanVien.userNhanVien : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.nhanVien.phongban" for="field_phongban">Phongban</label>
+                    <select class="form-control" id="field_phongban" name="phongban" [(ngModel)]="nhanVien.phongban" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="phongBanOption.id === nhanVien.phongban?.id ? nhanVien.phongban : phongBanOption" *ngFor="let phongBanOption of phongbans; trackBy: trackPhongBanById">{{phongBanOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

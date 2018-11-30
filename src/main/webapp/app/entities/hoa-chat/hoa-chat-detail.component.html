@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hoaChat">
+            <h2><span jhiTranslate="dtlsApp.hoaChat.detail.title">Hoa Chat</span> {{hoaChat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.hoaChat.maHoaChat">Ma Hoa Chat</span></dt>
+                <dd>
+                    <span>{{hoaChat.maHoaChat}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.tenHoaChat">Ten Hoa Chat</span></dt>
+                <dd>
+                    <span>{{hoaChat.tenHoaChat}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.hangHoaChat">Hang Hoa Chat</span></dt>
+                <dd>
+                    <span>{{hoaChat.hangHoaChat}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.donViTinh">Don Vi Tinh</span></dt>
+                <dd>
+                    <span>{{hoaChat.donViTinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{hoaChat.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{hoaChat.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{hoaChat.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{hoaChat.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoaChat.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{hoaChat.udf3}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hoa-chat', hoaChat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

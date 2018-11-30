@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hinh-thai-hai-cot-heading" jhiTranslate="dtlsApp.hinhThaiHaiCot.home.createOrEditLabel">Create or edit a Hinh Thai Hai Cot</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hinhThaiHaiCot.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hinhThaiHaiCot.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.giaTri" for="field_giaTri">Gia Tri</label>
+                    <input type="text" class="form-control" name="giaTri" id="field_giaTri"
+                        [(ngModel)]="hinhThaiHaiCot.giaTri" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="hinhThaiHaiCot.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="hinhThaiHaiCot.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="hinhThaiHaiCot.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="hinhThaiHaiCot.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="hinhThaiHaiCot.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.haiCotLietSi" for="field_haiCotLietSi">Hai Cot Liet Si</label>
+                    <select class="form-control" id="field_haiCotLietSi" name="haiCotLietSi" [(ngModel)]="hinhThaiHaiCot.haiCotLietSi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="haiCotLietSiOption.id === hinhThaiHaiCot.haiCotLietSi?.id ? hinhThaiHaiCot.haiCotLietSi : haiCotLietSiOption" *ngFor="let haiCotLietSiOption of haicotlietsis; trackBy: trackHaiCotLietSiById">{{haiCotLietSiOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hinhThaiHaiCot.loaiHinhThaiHaiCot" for="field_loaiHinhThaiHaiCot">Loai Hinh Thai Hai Cot</label>
+                    <select class="form-control" id="field_loaiHinhThaiHaiCot" name="loaiHinhThaiHaiCot" [(ngModel)]="hinhThaiHaiCot.loaiHinhThaiHaiCot" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="loaiHinhThaiHaiCotOption.id === hinhThaiHaiCot.loaiHinhThaiHaiCot?.id ? hinhThaiHaiCot.loaiHinhThaiHaiCot : loaiHinhThaiHaiCotOption" *ngFor="let loaiHinhThaiHaiCotOption of loaihinhthaihaicots; trackBy: trackLoaiHinhThaiHaiCotById">{{loaiHinhThaiHaiCotOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

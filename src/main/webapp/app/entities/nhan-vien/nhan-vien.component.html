@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.nhanVien.home.title">Nhan Viens</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-nhan-vien" [routerLink]="['/nhan-vien/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.nhanVien.home.createLabel">
+            Create new Nhan Vien
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.nhanVien.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="nhanViens">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.maNhanVien">Ma Nhan Vien</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.tenNhanVien">Ten Nhan Vien</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.soDienThoai">So Dien Thoai</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.email">Email</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.moTa">Mo Ta</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.ghiChu">Ghi Chu</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.udf1">Udf 1</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.udf2">Udf 2</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.udf3">Udf 3</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.userNhanVien">User Nhan Vien</span></th>
+            <th><span jhiTranslate="dtlsApp.nhanVien.phongban">Phongban</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let nhanVien of nhanViens ;trackBy: trackId">
+                <td><a [routerLink]="['/nhan-vien', nhanVien.id, 'view' ]">{{nhanVien.id}}</a></td>
+                <td>{{nhanVien.maNhanVien}}</td>
+                <td>{{nhanVien.tenNhanVien}}</td>
+                <td>{{nhanVien.soDienThoai}}</td>
+                <td>{{nhanVien.email}}</td>
+                <td>{{nhanVien.moTa}}</td>
+                <td>{{nhanVien.ghiChu}}</td>
+                <td>{{nhanVien.isDeleted}}</td>
+                <td>{{nhanVien.udf1}}</td>
+                <td>{{nhanVien.udf2}}</td>
+                <td>{{nhanVien.udf3}}</td>
+                <td>
+                    {{nhanVien.userNhanVien?.id}}
+                </td>
+                <td>
+                    <div *ngIf="nhanVien.phongban">
+                        <a [routerLink]="['../phong-ban', nhanVien.phongban?.id, 'view' ]" >{{nhanVien.phongban?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/nhan-vien', nhanVien.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/nhan-vien', nhanVien.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'nhan-vien/'+ nhanVien.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,245 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hoSoLietSi">
+            <h2><span jhiTranslate="dtlsApp.hoSoLietSi.detail.title">Ho So Liet Si</span> {{hoSoLietSi.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.maCCS">Ma CCS</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.maCCS}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.maLietSi">Ma Liet Si</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.maLietSi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hoTen">Ho Ten</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hoTen}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.tenKhac">Ten Khac</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.tenKhac}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.biDanh">Bi Danh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.biDanh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.gioiTinh">Gioi Tinh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.gioiTinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.namSinh">Nam Sinh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.namSinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.queThon">Que Thon</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.queThon}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.queXa">Que Xa</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.queXa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.queHuyen">Que Huyen</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.queHuyen}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.queTinh">Que Tinh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.queTinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.donVi">Don Vi</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.donVi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.namNhapNgu">Nam Nhap Ngu</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.namNhapNgu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.namXuatNgu">Nam Xuat Ngu</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.namXuatNgu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.namTaiNgu">Nam Tai Ngu</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.namTaiNgu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.namDiB">Nam Di B</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.namDiB}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhNgay">Hy Sinh Ngay</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhNgay}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhThang">Hy Sinh Thang</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhThang}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhNam">Hy Sinh Nam</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhNam}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhLyDo">Hy Sinh Ly Do</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhLyDo}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhDonVi">Hy Sinh Don Vi</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhDonVi}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhTranDanh">Hy Sinh Tran Danh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhTranDanh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhDiaDiem">Hy Sinh Dia Diem</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhDiaDiem}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhXa">Hy Sinh Xa</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhXa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhHuyen">Hy Sinh Huyen</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhHuyen}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.hySinhTinh">Hy Sinh Tinh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.hySinhTinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.anTangDiaDiem">An Tang Dia Diem</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.anTangDiaDiem}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.anTangXa">An Tang Xa</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.anTangXa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.anTangHuyen">An Tang Huyen</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.anTangHuyen}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.anTangTinh">An Tang Tinh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.anTangTinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.ngayBaoTu">Ngay Bao Tu</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.ngayBaoTu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.giayBaoTu">Giay Bao Tu</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.giayBaoTu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.vatDungKemTheo">Vat Dung Kem Theo</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.vatDungKemTheo}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.ghiChu">Ghi Chu</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.ghiChu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.trangThaiXacMinh">Trang Thai Xac Minh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.trangThaiXacMinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.chieuCao">Chieu Cao</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.chieuCao}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.canNang">Can Nang</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.canNang}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.nhomMau">Nhom Mau</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.nhomMau}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.dacDiemRang">Dac Diem Rang</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.dacDiemRang}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.tinhHuongHySinh">Tinh Huong Hy Sinh</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.tinhHuongHySinh}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.tinhHuongTimThay">Tinh Huong Tim Thay</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.tinhHuongTimThay}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.dacDiemNhanDang">Dac Diem Nhan Dang</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.dacDiemNhanDang}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.udf4">Udf 4</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.udf4}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.udf5">Udf 5</span></dt>
+                <dd>
+                    <span>{{hoSoLietSi.udf5}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.phuongXa">Phuong Xa</span></dt>
+                <dd>
+                    <div *ngIf="hoSoLietSi.phuongXa">
+                        <a [routerLink]="['/phuong-xa', hoSoLietSi.phuongXa?.id, 'view']">{{hoSoLietSi.phuongXa?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.donViHiSinh">Don Vi Hi Sinh</span></dt>
+                <dd>
+                    <div *ngIf="hoSoLietSi.donViHiSinh">
+                        <a [routerLink]="['/don-vi', hoSoLietSi.donViHiSinh?.id, 'view']">{{hoSoLietSi.donViHiSinh?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.donViHuanLuyen">Don Vi Huan Luyen</span></dt>
+                <dd>
+                    <div *ngIf="hoSoLietSi.donViHuanLuyen">
+                        <a [routerLink]="['/don-vi', hoSoLietSi.donViHuanLuyen?.id, 'view']">{{hoSoLietSi.donViHuanLuyen?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.capBac">Cap Bac</span></dt>
+                <dd>
+                    <div *ngIf="hoSoLietSi.capBac">
+                        <a [routerLink]="['/cap-bac', hoSoLietSi.capBac?.id, 'view']">{{hoSoLietSi.capBac?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoLietSi.chucVu">Chuc Vu</span></dt>
+                <dd>
+                    <div *ngIf="hoSoLietSi.chucVu">
+                        <a [routerLink]="['/chuc-vu', hoSoLietSi.chucVu?.id, 'view']">{{hoSoLietSi.chucVu?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ho-so-liet-si', hoSoLietSi.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.pCRMau.home.title">PCR Maus</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pcr-mau" [routerLink]="['/pcr-mau/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.pCRMau.home.createLabel">
+            Create new PCR Mau
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.pCRMau.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="pCRMaus">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.nongDoAgaros">Nong Do Agaros</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.udf1">Udf 1</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.udf2">Udf 2</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.udf3">Udf 3</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.pcrKetQua">Pcr Ket Qua</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.pcrMau">Pcr Mau</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.mauPCR">Mau PCR</span></th>
+            <th><span jhiTranslate="dtlsApp.pCRMau.moiPCR">Moi PCR</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pCRMau of pCRMaus ;trackBy: trackId">
+                <td><a [routerLink]="['/pcr-mau', pCRMau.id, 'view' ]">{{pCRMau.id}}</a></td>
+                <td>{{pCRMau.nongDoAgaros}}</td>
+                <td>{{pCRMau.isDeleted}}</td>
+                <td>{{pCRMau.udf1}}</td>
+                <td>{{pCRMau.udf2}}</td>
+                <td>{{pCRMau.udf3}}</td>
+                <td>
+                    <div *ngIf="pCRMau.pcrKetQua">
+                        <a [routerLink]="['../pcr-ket-qua', pCRMau.pcrKetQua?.id, 'view' ]" >{{pCRMau.pcrKetQua?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pCRMau.pcrMau">
+                        <a [routerLink]="['../pcr', pCRMau.pcrMau?.id, 'view' ]" >{{pCRMau.pcrMau?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pCRMau.mauPCR">
+                        <a [routerLink]="['../mau-xet-nghiem', pCRMau.mauPCR?.id, 'view' ]" >{{pCRMau.mauPCR?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pCRMau.moiPCR">
+                        <a [routerLink]="['../pcr-moi', pCRMau.moiPCR?.id, 'view' ]" >{{pCRMau.moiPCR?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/pcr-mau', pCRMau.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/pcr-mau', pCRMau.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pcr-mau/'+ pCRMau.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

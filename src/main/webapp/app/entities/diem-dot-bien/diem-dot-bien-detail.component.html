@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="diemDotBien">
+            <h2><span jhiTranslate="dtlsApp.diemDotBien.detail.title">Diem Dot Bien</span> {{diemDotBien.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.viTri">Vi Tri</span></dt>
+                <dd>
+                    <span>{{diemDotBien.viTri}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.giaTri">Gia Tri</span></dt>
+                <dd>
+                    <span>{{diemDotBien.giaTri}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{diemDotBien.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{diemDotBien.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{diemDotBien.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{diemDotBien.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.vungADN">Vung ADN</span></dt>
+                <dd>
+                    <div *ngIf="diemDotBien.vungADN">
+                        <a [routerLink]="['/vung-adn', diemDotBien.vungADN?.id, 'view']">{{diemDotBien.vungADN?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.diemDotBien.mauDiemDotBien">Mau Diem Dot Bien</span></dt>
+                <dd>
+                    <div *ngIf="diemDotBien.mauDiemDotBien">
+                        <a [routerLink]="['/mau-xet-nghiem', diemDotBien.mauDiemDotBien?.id, 'view']">{{diemDotBien.mauDiemDotBien?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/diem-dot-bien', diemDotBien.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

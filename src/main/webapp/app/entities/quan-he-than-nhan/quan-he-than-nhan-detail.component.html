@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="quanHeThanNhan">
+            <h2><span jhiTranslate="dtlsApp.quanHeThanNhan.detail.title">Quan He Than Nhan</span> {{quanHeThanNhan.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.quanHeThanNhan.maQuanHe">Ma Quan He</span></dt>
+                <dd>
+                    <span>{{quanHeThanNhan.maQuanHe}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.quanHeThanNhan.loaiQuanHe">Loai Quan He</span></dt>
+                <dd>
+                    <span>{{quanHeThanNhan.loaiQuanHe}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.quanHeThanNhan.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{quanHeThanNhan.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.quanHeThanNhan.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{quanHeThanNhan.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.quanHeThanNhan.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{quanHeThanNhan.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.quanHeThanNhan.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{quanHeThanNhan.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.quanHeThanNhan.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{quanHeThanNhan.udf3}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/quan-he-than-nhan', quanHeThanNhan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

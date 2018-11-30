@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mappingDotBien">
+            <h2><span jhiTranslate="dtlsApp.mappingDotBien.detail.title">Mapping Dot Bien</span> {{mappingDotBien.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.mappingDotBien.maDotBien">Ma Dot Bien</span></dt>
+                <dd>
+                    <span>{{mappingDotBien.maDotBien}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mappingDotBien.maMapping">Ma Mapping</span></dt>
+                <dd>
+                    <span>{{mappingDotBien.maMapping}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mappingDotBien.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{mappingDotBien.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mappingDotBien.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{mappingDotBien.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mappingDotBien.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{mappingDotBien.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.mappingDotBien.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{mappingDotBien.udf3}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mapping-dot-bien', mappingDotBien.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

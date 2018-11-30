@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.hoaChat.home.title">Hoa Chats</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hoa-chat" [routerLink]="['/hoa-chat/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.hoaChat.home.createLabel">
+            Create new Hoa Chat
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.hoaChat.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="hoaChats">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.maHoaChat">Ma Hoa Chat</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.tenHoaChat">Ten Hoa Chat</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.hangHoaChat">Hang Hoa Chat</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.donViTinh">Don Vi Tinh</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.moTa">Mo Ta</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.udf1">Udf 1</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.udf2">Udf 2</span></th>
+            <th><span jhiTranslate="dtlsApp.hoaChat.udf3">Udf 3</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hoaChat of hoaChats ;trackBy: trackId">
+                <td><a [routerLink]="['/hoa-chat', hoaChat.id, 'view' ]">{{hoaChat.id}}</a></td>
+                <td>{{hoaChat.maHoaChat}}</td>
+                <td>{{hoaChat.tenHoaChat}}</td>
+                <td>{{hoaChat.hangHoaChat}}</td>
+                <td>{{hoaChat.donViTinh}}</td>
+                <td>{{hoaChat.moTa}}</td>
+                <td>{{hoaChat.isDeleted}}</td>
+                <td>{{hoaChat.udf1}}</td>
+                <td>{{hoaChat.udf2}}</td>
+                <td>{{hoaChat.udf3}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/hoa-chat', hoaChat.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/hoa-chat', hoaChat.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'hoa-chat/'+ hoaChat.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tachChiet">
+            <h2><span jhiTranslate="dtlsApp.tachChiet.detail.title">Tach Chiet</span> {{tachChiet.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.tachChiet.maTachChiet">Ma Tach Chiet</span></dt>
+                <dd>
+                    <span>{{tachChiet.maTachChiet}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{tachChiet.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.ghiChu">Ghi Chu</span></dt>
+                <dd>
+                    <span>{{tachChiet.ghiChu}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.thoiGianThucHien">Thoi Gian Thuc Hien</span></dt>
+                <dd>
+                    <span>{{tachChiet.thoiGianThucHien}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.phuongPhapLoc">Phuong Phap Loc</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'dtlsApp.PhuongPhapLoc.' + tachChiet.phuongPhapLoc}}">{{tachChiet.phuongPhapLoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{tachChiet.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{tachChiet.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{tachChiet.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{tachChiet.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.nhanVienNghienMau">Nhan Vien Nghien Mau</span></dt>
+                <dd>
+                    <div *ngIf="tachChiet.nhanVienNghienMau">
+                        <a [routerLink]="['/nhan-vien', tachChiet.nhanVienNghienMau?.id, 'view']">{{tachChiet.nhanVienNghienMau?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.tachChiet.nhanVienTachADN">Nhan Vien Tach ADN</span></dt>
+                <dd>
+                    <div *ngIf="tachChiet.nhanVienTachADN">
+                        <a [routerLink]="['/nhan-vien', tachChiet.nhanVienTachADN?.id, 'view']">{{tachChiet.nhanVienTachADN?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tach-chiet', tachChiet.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

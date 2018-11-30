@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.nghiaTrang.home.title">Nghia Trangs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-nghia-trang" [routerLink]="['/nghia-trang/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.nghiaTrang.home.createLabel">
+            Create new Nghia Trang
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.nghiaTrang.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="nghiaTrangs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maNghiaTrang"><span jhiTranslate="dtlsApp.nghiaTrang.maNghiaTrang">Ma Nghia Trang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenNghiaTrang"><span jhiTranslate="dtlsApp.nghiaTrang.tenNghiaTrang">Ten Nghia Trang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diaChi"><span jhiTranslate="dtlsApp.nghiaTrang.diaChi">Dia Chi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nguoiLienHe"><span jhiTranslate="dtlsApp.nghiaTrang.nguoiLienHe">Nguoi Lien He</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dienThoai"><span jhiTranslate="dtlsApp.nghiaTrang.dienThoai">Dien Thoai</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="dtlsApp.nghiaTrang.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="moTa"><span jhiTranslate="dtlsApp.nghiaTrang.moTa">Mo Ta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDeleted"><span jhiTranslate="dtlsApp.nghiaTrang.isDeleted">Is Deleted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf1"><span jhiTranslate="dtlsApp.nghiaTrang.udf1">Udf 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf2"><span jhiTranslate="dtlsApp.nghiaTrang.udf2">Udf 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf3"><span jhiTranslate="dtlsApp.nghiaTrang.udf3">Udf 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phuongXa.id"><span jhiTranslate="dtlsApp.nghiaTrang.phuongXa">Phuong Xa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let nghiaTrang of nghiaTrangs ;trackBy: trackId">
+                <td><a [routerLink]="['/nghia-trang', nghiaTrang.id, 'view' ]">{{nghiaTrang.id}}</a></td>
+                <td>{{nghiaTrang.maNghiaTrang}}</td>
+                <td>{{nghiaTrang.tenNghiaTrang}}</td>
+                <td>{{nghiaTrang.diaChi}}</td>
+                <td>{{nghiaTrang.nguoiLienHe}}</td>
+                <td>{{nghiaTrang.dienThoai}}</td>
+                <td>{{nghiaTrang.email}}</td>
+                <td>{{nghiaTrang.moTa}}</td>
+                <td>{{nghiaTrang.isDeleted}}</td>
+                <td>{{nghiaTrang.udf1}}</td>
+                <td>{{nghiaTrang.udf2}}</td>
+                <td>{{nghiaTrang.udf3}}</td>
+                <td>
+                    <div *ngIf="nghiaTrang.phuongXa">
+                        <a [routerLink]="['../phuong-xa', nghiaTrang.phuongXa?.id, 'view' ]" >{{nghiaTrang.phuongXa?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/nghia-trang', nghiaTrang.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/nghia-trang', nghiaTrang.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'nghia-trang/'+ nghiaTrang.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="nghiaTrangs && nghiaTrangs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
