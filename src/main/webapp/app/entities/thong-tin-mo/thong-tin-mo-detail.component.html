@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="thongTinMo">
+            <h2><span jhiTranslate="dtlsApp.thongTinMo.detail.title">Thong Tin Mo</span> {{thongTinMo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.khuMo">Khu Mo</span></dt>
+                <dd>
+                    <span>{{thongTinMo.khuMo}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.loMo">Lo Mo</span></dt>
+                <dd>
+                    <span>{{thongTinMo.loMo}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.hangMo">Hang Mo</span></dt>
+                <dd>
+                    <span>{{thongTinMo.hangMo}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.soMo">So Mo</span></dt>
+                <dd>
+                    <span>{{thongTinMo.soMo}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{thongTinMo.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{thongTinMo.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{thongTinMo.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{thongTinMo.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{thongTinMo.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.thongTinMo.nghiaTrang">Nghia Trang</span></dt>
+                <dd>
+                    <div *ngIf="thongTinMo.nghiaTrang">
+                        <a [routerLink]="['/nghia-trang', thongTinMo.nghiaTrang?.id, 'view']">{{thongTinMo.nghiaTrang?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/thong-tin-mo', thongTinMo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

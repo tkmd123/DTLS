@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.mayPCR.home.title">May PCRS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-may-pcr" [routerLink]="['/may-pcr/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.mayPCR.home.createLabel">
+            Create new May PCR
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.mayPCR.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mayPCRS">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.mayPCR.maMayPCR">Ma May PCR</span></th>
+            <th><span jhiTranslate="dtlsApp.mayPCR.tenMayPCR">Ten May PCR</span></th>
+            <th><span jhiTranslate="dtlsApp.mayPCR.moTa">Mo Ta</span></th>
+            <th><span jhiTranslate="dtlsApp.mayPCR.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.mayPCR.udf1">Udf 1</span></th>
+            <th><span jhiTranslate="dtlsApp.mayPCR.udf2">Udf 2</span></th>
+            <th><span jhiTranslate="dtlsApp.mayPCR.udf3">Udf 3</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mayPCR of mayPCRS ;trackBy: trackId">
+                <td><a [routerLink]="['/may-pcr', mayPCR.id, 'view' ]">{{mayPCR.id}}</a></td>
+                <td>{{mayPCR.maMayPCR}}</td>
+                <td>{{mayPCR.tenMayPCR}}</td>
+                <td>{{mayPCR.moTa}}</td>
+                <td>{{mayPCR.isDeleted}}</td>
+                <td>{{mayPCR.udf1}}</td>
+                <td>{{mayPCR.udf2}}</td>
+                <td>{{mayPCR.udf3}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/may-pcr', mayPCR.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/may-pcr', mayPCR.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'may-pcr/'+ mayPCR.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

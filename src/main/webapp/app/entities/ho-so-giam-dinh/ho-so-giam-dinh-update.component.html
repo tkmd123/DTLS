@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-ho-so-giam-dinh-heading" jhiTranslate="dtlsApp.hoSoGiamDinh.home.createOrEditLabel">Create or edit a Ho So Giam Dinh</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hoSoGiamDinh.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hoSoGiamDinh.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoGiamDinh.maHSGD" for="field_maHSGD">Ma HSGD</label>
+                    <input type="text" class="form-control" name="maHSGD" id="field_maHSGD"
+                        [(ngModel)]="hoSoGiamDinh.maHSGD" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoGiamDinh.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="hoSoGiamDinh.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoGiamDinh.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="hoSoGiamDinh.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoGiamDinh.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="hoSoGiamDinh.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoGiamDinh.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="hoSoGiamDinh.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="dtlsApp.hoSoGiamDinh.giamDinhThanNhan" for="field_giamDinhThanNhan">Giam Dinh Than Nhan</label>
+                    <select class="form-control" id="field_giamDinhThanNhan" multiple name="giamDinhThanNhan" [(ngModel)]="hoSoGiamDinh.giamDinhThanNhans">
+                        <option [ngValue]="getSelected(hoSoGiamDinh.giamDinhThanNhans, hoSoThanNhanOption)" *ngFor="let hoSoThanNhanOption of hosothannhans; trackBy: trackHoSoThanNhanById">{{hoSoThanNhanOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="dtlsApp.hoSoGiamDinh.giamDinhLietSi" for="field_giamDinhLietSi">Giam Dinh Liet Si</label>
+                    <select class="form-control" id="field_giamDinhLietSi" multiple name="giamDinhLietSi" [(ngModel)]="hoSoGiamDinh.giamDinhLietSis">
+                        <option [ngValue]="getSelected(hoSoGiamDinh.giamDinhLietSis, hoSoLietSiOption)" *ngFor="let hoSoLietSiOption of hosolietsis; trackBy: trackHoSoLietSiById">{{hoSoLietSiOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoSoGiamDinh.nhanVienHSGD" for="field_nhanVienHSGD">Nhan Vien HSGD</label>
+                    <select class="form-control" id="field_nhanVienHSGD" name="nhanVienHSGD" [(ngModel)]="hoSoGiamDinh.nhanVienHSGD" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nhanVienOption.id === hoSoGiamDinh.nhanVienHSGD?.id ? hoSoGiamDinh.nhanVienHSGD : nhanVienOption" *ngFor="let nhanVienOption of nhanviens; trackBy: trackNhanVienById">{{nhanVienOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

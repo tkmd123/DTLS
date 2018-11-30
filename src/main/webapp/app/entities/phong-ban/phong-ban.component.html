@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.phongBan.home.title">Phong Bans</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-phong-ban" [routerLink]="['/phong-ban/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.phongBan.home.createLabel">
+            Create new Phong Ban
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.phongBan.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="phongBans">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.maPhongBan">Ma Phong Ban</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.tenPhongBan">Ten Phong Ban</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.moTa">Mo Ta</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.isActive">Is Active</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.udf1">Udf 1</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.udf2">Udf 2</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.udf3">Udf 3</span></th>
+            <th><span jhiTranslate="dtlsApp.phongBan.trungtam">Trungtam</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let phongBan of phongBans ;trackBy: trackId">
+                <td><a [routerLink]="['/phong-ban', phongBan.id, 'view' ]">{{phongBan.id}}</a></td>
+                <td>{{phongBan.maPhongBan}}</td>
+                <td>{{phongBan.tenPhongBan}}</td>
+                <td>{{phongBan.moTa}}</td>
+                <td>{{phongBan.isActive}}</td>
+                <td>{{phongBan.isDeleted}}</td>
+                <td>{{phongBan.udf1}}</td>
+                <td>{{phongBan.udf2}}</td>
+                <td>{{phongBan.udf3}}</td>
+                <td>
+                    <div *ngIf="phongBan.trungtam">
+                        <a [routerLink]="['../trung-tam', phongBan.trungtam?.id, 'view' ]" >{{phongBan.trungtam?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/phong-ban', phongBan.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/phong-ban', phongBan.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'phong-ban/'+ phongBan.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

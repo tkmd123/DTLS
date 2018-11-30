@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.diemDotBien.home.title">Diem Dot Biens</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-diem-dot-bien" [routerLink]="['/diem-dot-bien/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.diemDotBien.home.createLabel">
+            Create new Diem Dot Bien
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.diemDotBien.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="diemDotBiens">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="viTri"><span jhiTranslate="dtlsApp.diemDotBien.viTri">Vi Tri</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="giaTri"><span jhiTranslate="dtlsApp.diemDotBien.giaTri">Gia Tri</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDeleted"><span jhiTranslate="dtlsApp.diemDotBien.isDeleted">Is Deleted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf1"><span jhiTranslate="dtlsApp.diemDotBien.udf1">Udf 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf2"><span jhiTranslate="dtlsApp.diemDotBien.udf2">Udf 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="udf3"><span jhiTranslate="dtlsApp.diemDotBien.udf3">Udf 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vungADN.id"><span jhiTranslate="dtlsApp.diemDotBien.vungADN">Vung ADN</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mauDiemDotBien.id"><span jhiTranslate="dtlsApp.diemDotBien.mauDiemDotBien">Mau Diem Dot Bien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let diemDotBien of diemDotBiens ;trackBy: trackId">
+                <td><a [routerLink]="['/diem-dot-bien', diemDotBien.id, 'view' ]">{{diemDotBien.id}}</a></td>
+                <td>{{diemDotBien.viTri}}</td>
+                <td>{{diemDotBien.giaTri}}</td>
+                <td>{{diemDotBien.isDeleted}}</td>
+                <td>{{diemDotBien.udf1}}</td>
+                <td>{{diemDotBien.udf2}}</td>
+                <td>{{diemDotBien.udf3}}</td>
+                <td>
+                    <div *ngIf="diemDotBien.vungADN">
+                        <a [routerLink]="['../vung-adn', diemDotBien.vungADN?.id, 'view' ]" >{{diemDotBien.vungADN?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="diemDotBien.mauDiemDotBien">
+                        <a [routerLink]="['../mau-xet-nghiem', diemDotBien.mauDiemDotBien?.id, 'view' ]" >{{diemDotBien.mauDiemDotBien?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/diem-dot-bien', diemDotBien.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/diem-dot-bien', diemDotBien.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'diem-dot-bien/'+ diemDotBien.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="diemDotBiens && diemDotBiens.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

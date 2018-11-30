@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="dtlsApp.mappingDotBien.home.title">Mapping Dot Biens</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mapping-dot-bien" [routerLink]="['/mapping-dot-bien/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="dtlsApp.mappingDotBien.home.createLabel">
+            Create new Mapping Dot Bien
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtlsApp.mappingDotBien.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mappingDotBiens">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dtlsApp.mappingDotBien.maDotBien">Ma Dot Bien</span></th>
+            <th><span jhiTranslate="dtlsApp.mappingDotBien.maMapping">Ma Mapping</span></th>
+            <th><span jhiTranslate="dtlsApp.mappingDotBien.isDeleted">Is Deleted</span></th>
+            <th><span jhiTranslate="dtlsApp.mappingDotBien.udf1">Udf 1</span></th>
+            <th><span jhiTranslate="dtlsApp.mappingDotBien.udf2">Udf 2</span></th>
+            <th><span jhiTranslate="dtlsApp.mappingDotBien.udf3">Udf 3</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mappingDotBien of mappingDotBiens ;trackBy: trackId">
+                <td><a [routerLink]="['/mapping-dot-bien', mappingDotBien.id, 'view' ]">{{mappingDotBien.id}}</a></td>
+                <td>{{mappingDotBien.maDotBien}}</td>
+                <td>{{mappingDotBien.maMapping}}</td>
+                <td>{{mappingDotBien.isDeleted}}</td>
+                <td>{{mappingDotBien.udf1}}</td>
+                <td>{{mappingDotBien.udf2}}</td>
+                <td>{{mappingDotBien.udf3}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/mapping-dot-bien', mappingDotBien.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/mapping-dot-bien', mappingDotBien.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mapping-dot-bien/'+ mappingDotBien.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hoa-chat-tach-chiet-heading" jhiTranslate="dtlsApp.hoaChatTachChiet.home.createOrEditLabel">Create or edit a Hoa Chat Tach Chiet</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hoaChatTachChiet.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hoaChatTachChiet.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.soLuong" for="field_soLuong">So Luong</label>
+                    <input type="number" class="form-control" name="soLuong" id="field_soLuong"
+                        [(ngModel)]="hoaChatTachChiet.soLuong" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="hoaChatTachChiet.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="hoaChatTachChiet.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="hoaChatTachChiet.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="hoaChatTachChiet.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="hoaChatTachChiet.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.hoaChat" for="field_hoaChat">Hoa Chat</label>
+                    <select class="form-control" id="field_hoaChat" name="hoaChat" [(ngModel)]="hoaChatTachChiet.hoaChat" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hoaChatOption.id === hoaChatTachChiet.hoaChat?.id ? hoaChatTachChiet.hoaChat : hoaChatOption" *ngFor="let hoaChatOption of hoachats; trackBy: trackHoaChatById">{{hoaChatOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.hoaChatTachChiet.tachChiet" for="field_tachChiet">Tach Chiet</label>
+                    <select class="form-control" id="field_tachChiet" name="tachChiet" [(ngModel)]="hoaChatTachChiet.tachChiet" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tachChietOption.id === hoaChatTachChiet.tachChiet?.id ? hoaChatTachChiet.tachChiet : tachChietOption" *ngFor="let tachChietOption of tachchiets; trackBy: trackTachChietById">{{tachChietOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

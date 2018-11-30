@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pCRMau">
+            <h2><span jhiTranslate="dtlsApp.pCRMau.detail.title">PCR Mau</span> {{pCRMau.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.pCRMau.nongDoAgaros">Nong Do Agaros</span></dt>
+                <dd>
+                    <span>{{pCRMau.nongDoAgaros}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{pCRMau.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{pCRMau.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{pCRMau.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{pCRMau.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.pcrKetQua">Pcr Ket Qua</span></dt>
+                <dd>
+                    <div *ngIf="pCRMau.pcrKetQua">
+                        <a [routerLink]="['/pcr-ket-qua', pCRMau.pcrKetQua?.id, 'view']">{{pCRMau.pcrKetQua?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.pcrMau">Pcr Mau</span></dt>
+                <dd>
+                    <div *ngIf="pCRMau.pcrMau">
+                        <a [routerLink]="['/pcr', pCRMau.pcrMau?.id, 'view']">{{pCRMau.pcrMau?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.mauPCR">Mau PCR</span></dt>
+                <dd>
+                    <div *ngIf="pCRMau.mauPCR">
+                        <a [routerLink]="['/mau-xet-nghiem', pCRMau.mauPCR?.id, 'view']">{{pCRMau.mauPCR?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.pCRMau.moiPCR">Moi PCR</span></dt>
+                <dd>
+                    <div *ngIf="pCRMau.moiPCR">
+                        <a [routerLink]="['/pcr-moi', pCRMau.moiPCR?.id, 'view']">{{pCRMau.moiPCR?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pcr-mau', pCRMau.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

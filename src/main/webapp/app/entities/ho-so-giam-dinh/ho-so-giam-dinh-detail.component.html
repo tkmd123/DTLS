@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hoSoGiamDinh">
+            <h2><span jhiTranslate="dtlsApp.hoSoGiamDinh.detail.title">Ho So Giam Dinh</span> {{hoSoGiamDinh.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.maHSGD">Ma HSGD</span></dt>
+                <dd>
+                    <span>{{hoSoGiamDinh.maHSGD}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{hoSoGiamDinh.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{hoSoGiamDinh.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{hoSoGiamDinh.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{hoSoGiamDinh.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.giamDinhThanNhan">Giam Dinh Than Nhan</span></dt>
+                <dd>
+                    <span *ngFor="let giamDinhThanNhan of hoSoGiamDinh.giamDinhThanNhans; let last = last">
+                        <a [routerLink]="['/ho-so-than-nhan', giamDinhThanNhan?.id, 'view' ]">{{giamDinhThanNhan.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.giamDinhLietSi">Giam Dinh Liet Si</span></dt>
+                <dd>
+                    <span *ngFor="let giamDinhLietSi of hoSoGiamDinh.giamDinhLietSis; let last = last">
+                        <a [routerLink]="['/ho-so-liet-si', giamDinhLietSi?.id, 'view' ]">{{giamDinhLietSi.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.hoSoGiamDinh.nhanVienHSGD">Nhan Vien HSGD</span></dt>
+                <dd>
+                    <div *ngIf="hoSoGiamDinh.nhanVienHSGD">
+                        <a [routerLink]="['/nhan-vien', hoSoGiamDinh.nhanVienHSGD?.id, 'view']">{{hoSoGiamDinh.nhanVienHSGD?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ho-so-giam-dinh', hoSoGiamDinh.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

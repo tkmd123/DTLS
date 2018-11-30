@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="loaiHinhThaiHaiCot">
+            <h2><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.detail.title">Loai Hinh Thai Hai Cot</span> {{loaiHinhThaiHaiCot.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.maHinhThai">Ma Hinh Thai</span></dt>
+                <dd>
+                    <span>{{loaiHinhThaiHaiCot.maHinhThai}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.tenHinhThai">Ten Hinh Thai</span></dt>
+                <dd>
+                    <span>{{loaiHinhThaiHaiCot.tenHinhThai}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{loaiHinhThaiHaiCot.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{loaiHinhThaiHaiCot.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{loaiHinhThaiHaiCot.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{loaiHinhThaiHaiCot.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.loaiHinhThaiHaiCot.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{loaiHinhThaiHaiCot.udf3}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/loai-hinh-thai-hai-cot', loaiHinhThaiHaiCot.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

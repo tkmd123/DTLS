@@ -1,0 +1,170 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-mau-xet-nghiem-heading" jhiTranslate="dtlsApp.mauXetNghiem.home.createOrEditLabel">Create or edit a Mau Xet Nghiem</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mauXetNghiem.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="mauXetNghiem.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.maMauXetNghiem" for="field_maMauXetNghiem">Ma Mau Xet Nghiem</label>
+                    <input type="text" class="form-control" name="maMauXetNghiem" id="field_maMauXetNghiem"
+                        [(ngModel)]="mauXetNghiem.maMauXetNghiem" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.ngayLayMau" for="field_ngayLayMau">Ngay Lay Mau</label>
+                    <div class="d-flex">
+                        <input id="field_ngayLayMau" type="datetime-local" class="form-control" name="ngayLayMau" [(ngModel)]="ngayLayMau"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.nguoiLayMau" for="field_nguoiLayMau">Nguoi Lay Mau</label>
+                    <input type="text" class="form-control" name="nguoiLayMau" id="field_nguoiLayMau"
+                        [(ngModel)]="mauXetNghiem.nguoiLayMau" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.ngayTiepNhan" for="field_ngayTiepNhan">Ngay Tiep Nhan</label>
+                    <div class="d-flex">
+                        <input id="field_ngayTiepNhan" type="datetime-local" class="form-control" name="ngayTiepNhan" [(ngModel)]="ngayTiepNhan"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.soLuongMau" for="field_soLuongMau">So Luong Mau</label>
+                    <input type="number" class="form-control" name="soLuongMau" id="field_soLuongMau"
+                        [(ngModel)]="mauXetNghiem.soLuongMau" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.trangThaiMau" for="field_trangThaiMau">Trang Thai Mau</label>
+                    <select class="form-control" name="trangThaiMau" [(ngModel)]="mauXetNghiem.trangThaiMau" id="field_trangThaiMau" >
+                        <option value="MOI">{{'dtlsApp.TrangThaiMau.MOI' | translate}}</option>
+                        <option value="DATACHCHIET">{{'dtlsApp.TrangThaiMau.DATACHCHIET' | translate}}</option>
+                        <option value="PCRDAT">{{'dtlsApp.TrangThaiMau.PCRDAT' | translate}}</option>
+                        <option value="PCRLOAI">{{'dtlsApp.TrangThaiMau.PCRLOAI' | translate}}</option>
+                        <option value="NHANBAN">{{'dtlsApp.TrangThaiMau.NHANBAN' | translate}}</option>
+                        <option value="GIAITRINHTU">{{'dtlsApp.TrangThaiMau.GIAITRINHTU' | translate}}</option>
+                        <option value="HOANTHANH">{{'dtlsApp.TrangThaiMau.HOANTHANH' | translate}}</option>
+                        <option value="KHONGDATCHUAN">{{'dtlsApp.TrangThaiMau.KHONGDATCHUAN' | translate}}</option>
+                        <option value="HUY">{{'dtlsApp.TrangThaiMau.HUY' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                        [(ngModel)]="mauXetNghiem.moTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.ghiChu" for="field_ghiChu">Ghi Chu</label>
+                    <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
+                        [(ngModel)]="mauXetNghiem.ghiChu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.fileGoc" for="field_fileGoc">File Goc</label>
+                    <input type="text" class="form-control" name="fileGoc" id="field_fileGoc"
+                        [(ngModel)]="mauXetNghiem.fileGoc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.fileKetQua" for="field_fileKetQua">File Ket Qua</label>
+                    <input type="text" class="form-control" name="fileKetQua" id="field_fileKetQua"
+                        [(ngModel)]="mauXetNghiem.fileKetQua" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.fileDotBien" for="field_fileDotBien">File Dot Bien</label>
+                    <input type="text" class="form-control" name="fileDotBien" id="field_fileDotBien"
+                        [(ngModel)]="mauXetNghiem.fileDotBien" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="mauXetNghiem.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="mauXetNghiem.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="mauXetNghiem.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="mauXetNghiem.udf3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.udf4" for="field_udf4">Udf 4</label>
+                    <input type="text" class="form-control" name="udf4" id="field_udf4"
+                        [(ngModel)]="mauXetNghiem.udf4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.udf5" for="field_udf5">Udf 5</label>
+                    <input type="text" class="form-control" name="udf5" id="field_udf5"
+                        [(ngModel)]="mauXetNghiem.udf5" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="dtlsApp.mauXetNghiem.mauTinhSach" for="field_mauTinhSach">Mau Tinh Sach</label>
+                    <select class="form-control" id="field_mauTinhSach" multiple name="mauTinhSach" [(ngModel)]="mauXetNghiem.mauTinhSaches">
+                        <option [ngValue]="getSelected(mauXetNghiem.mauTinhSaches, tinhSachOption)" *ngFor="let tinhSachOption of tinhsaches; trackBy: trackTinhSachById">{{tinhSachOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.hoSoGiamDinh" for="field_hoSoGiamDinh">Ho So Giam Dinh</label>
+                    <select class="form-control" id="field_hoSoGiamDinh" name="hoSoGiamDinh" [(ngModel)]="mauXetNghiem.hoSoGiamDinh" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hoSoGiamDinhOption.id === mauXetNghiem.hoSoGiamDinh?.id ? mauXetNghiem.hoSoGiamDinh : hoSoGiamDinhOption" *ngFor="let hoSoGiamDinhOption of hosogiamdinhs; trackBy: trackHoSoGiamDinhById">{{hoSoGiamDinhOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.nhanVienNhanMau" for="field_nhanVienNhanMau">Nhan Vien Nhan Mau</label>
+                    <select class="form-control" id="field_nhanVienNhanMau" name="nhanVienNhanMau" [(ngModel)]="mauXetNghiem.nhanVienNhanMau" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nhanVienOption.id === mauXetNghiem.nhanVienNhanMau?.id ? mauXetNghiem.nhanVienNhanMau : nhanVienOption" *ngFor="let nhanVienOption of nhanviens; trackBy: trackNhanVienById">{{nhanVienOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.loaiMauXetNghiem" for="field_loaiMauXetNghiem">Loai Mau Xet Nghiem</label>
+                    <select class="form-control" id="field_loaiMauXetNghiem" name="loaiMauXetNghiem" [(ngModel)]="mauXetNghiem.loaiMauXetNghiem" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="loaiMauXetNghiemOption.id === mauXetNghiem.loaiMauXetNghiem?.id ? mauXetNghiem.loaiMauXetNghiem : loaiMauXetNghiemOption" *ngFor="let loaiMauXetNghiemOption of loaimauxetnghiems; trackBy: trackLoaiMauXetNghiemById">{{loaiMauXetNghiemOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.haiCotLietSi" for="field_haiCotLietSi">Hai Cot Liet Si</label>
+                    <select class="form-control" id="field_haiCotLietSi" name="haiCotLietSi" [(ngModel)]="mauXetNghiem.haiCotLietSi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="haiCotLietSiOption.id === mauXetNghiem.haiCotLietSi?.id ? mauXetNghiem.haiCotLietSi : haiCotLietSiOption" *ngFor="let haiCotLietSiOption of haicotlietsis; trackBy: trackHaiCotLietSiById">{{haiCotLietSiOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.thanNhan" for="field_thanNhan">Than Nhan</label>
+                    <select class="form-control" id="field_thanNhan" name="thanNhan" [(ngModel)]="mauXetNghiem.thanNhan" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hoSoThanNhanOption.id === mauXetNghiem.thanNhan?.id ? mauXetNghiem.thanNhan : hoSoThanNhanOption" *ngFor="let hoSoThanNhanOption of hosothannhans; trackBy: trackHoSoThanNhanById">{{hoSoThanNhanOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.mauXetNghiem.loaiThaoTac" for="field_loaiThaoTac">Loai Thao Tac</label>
+                    <select class="form-control" id="field_loaiThaoTac" name="loaiThaoTac" [(ngModel)]="mauXetNghiem.loaiThaoTac" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="loaiThaoTacOption.id === mauXetNghiem.loaiThaoTac?.id ? mauXetNghiem.loaiThaoTac : loaiThaoTacOption" *ngFor="let loaiThaoTacOption of loaithaotacs; trackBy: trackLoaiThaoTacById">{{loaiThaoTacOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

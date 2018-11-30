@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="phongBan">
+            <h2><span jhiTranslate="dtlsApp.phongBan.detail.title">Phong Ban</span> {{phongBan.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="dtlsApp.phongBan.maPhongBan">Ma Phong Ban</span></dt>
+                <dd>
+                    <span>{{phongBan.maPhongBan}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.tenPhongBan">Ten Phong Ban</span></dt>
+                <dd>
+                    <span>{{phongBan.tenPhongBan}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{phongBan.moTa}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{phongBan.isActive}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.isDeleted">Is Deleted</span></dt>
+                <dd>
+                    <span>{{phongBan.isDeleted}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.udf1">Udf 1</span></dt>
+                <dd>
+                    <span>{{phongBan.udf1}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.udf2">Udf 2</span></dt>
+                <dd>
+                    <span>{{phongBan.udf2}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.udf3">Udf 3</span></dt>
+                <dd>
+                    <span>{{phongBan.udf3}}</span>
+                </dd>
+                <dt><span jhiTranslate="dtlsApp.phongBan.trungtam">Trungtam</span></dt>
+                <dd>
+                    <div *ngIf="phongBan.trungtam">
+                        <a [routerLink]="['/trung-tam', phongBan.trungtam?.id, 'view']">{{phongBan.trungtam?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/phong-ban', phongBan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

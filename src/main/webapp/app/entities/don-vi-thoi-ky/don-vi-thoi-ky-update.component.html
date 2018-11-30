@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-don-vi-thoi-ky-heading" jhiTranslate="dtlsApp.donViThoiKy.home.createOrEditLabel">Create or edit a Don Vi Thoi Ky</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!donViThoiKy.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="donViThoiKy.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.tuNam" for="field_tuNam">Tu Nam</label>
+                    <input type="number" class="form-control" name="tuNam" id="field_tuNam"
+                        [(ngModel)]="donViThoiKy.tuNam" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.denNam" for="field_denNam">Den Nam</label>
+                    <input type="number" class="form-control" name="denNam" id="field_denNam"
+                        [(ngModel)]="donViThoiKy.denNam" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.diaDiemMoTa" for="field_diaDiemMoTa">Dia Diem Mo Ta</label>
+                    <input type="text" class="form-control" name="diaDiemMoTa" id="field_diaDiemMoTa"
+                        [(ngModel)]="donViThoiKy.diaDiemMoTa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.diaDiemXa" for="field_diaDiemXa">Dia Diem Xa</label>
+                    <input type="text" class="form-control" name="diaDiemXa" id="field_diaDiemXa"
+                        [(ngModel)]="donViThoiKy.diaDiemXa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.diaDiemHuyen" for="field_diaDiemHuyen">Dia Diem Huyen</label>
+                    <input type="text" class="form-control" name="diaDiemHuyen" id="field_diaDiemHuyen"
+                        [(ngModel)]="donViThoiKy.diaDiemHuyen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.diaDiemTinh" for="field_diaDiemTinh">Dia Diem Tinh</label>
+                    <input type="text" class="form-control" name="diaDiemTinh" id="field_diaDiemTinh"
+                        [(ngModel)]="donViThoiKy.diaDiemTinh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.isDeleted" for="field_isDeleted">Is Deleted</label>
+                    <input type="checkbox" class="form-control" name="isDeleted" id="field_isDeleted"
+                        [(ngModel)]="donViThoiKy.isDeleted" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.udf1" for="field_udf1">Udf 1</label>
+                    <input type="text" class="form-control" name="udf1" id="field_udf1"
+                        [(ngModel)]="donViThoiKy.udf1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.udf2" for="field_udf2">Udf 2</label>
+                    <input type="text" class="form-control" name="udf2" id="field_udf2"
+                        [(ngModel)]="donViThoiKy.udf2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.udf3" for="field_udf3">Udf 3</label>
+                    <input type="text" class="form-control" name="udf3" id="field_udf3"
+                        [(ngModel)]="donViThoiKy.udf3" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dtlsApp.donViThoiKy.donVi" for="field_donVi">Don Vi</label>
+                    <select class="form-control" id="field_donVi" name="donVi" [(ngModel)]="donViThoiKy.donVi" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="donViOption.id === donViThoiKy.donVi?.id ? donViThoiKy.donVi : donViOption" *ngFor="let donViOption of donvis; trackBy: trackDonViById">{{donViOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
